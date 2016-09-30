@@ -122,7 +122,7 @@ namespace HospitalBookWebSite.Home
 </root>
 ";
             #endregion
-            int bookid = 1;
+            int bookid = 3;
             int beginId = bookid*1000;
             try
             {
@@ -138,7 +138,7 @@ namespace HospitalBookWebSite.Home
                 for(int sectionNum=0;sectionNum<nodeSectionList.Count;sectionNum++)
                 {
                     nodeSectionList[sectionNum].Attributes["id"].Value = Convert.ToString(beginId + sectionNum);
-                    nodeSectionList[sectionNum].Attributes["parentid"].Value = beginId.ToString();
+                    nodeSectionList[sectionNum].Attributes["parentid"].Value = bookid.ToString();
                 }
 
                 for (int partNum = 0; partNum < nodePartList.Count; partNum++)
