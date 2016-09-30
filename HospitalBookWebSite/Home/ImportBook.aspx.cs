@@ -297,7 +297,7 @@ namespace HospitalBookWebSite.Home
                 sbSection.AppendFormat(@"<section title=""{0}"" id=""{1}"" parentid=""{2}"">", arrSection[0], beginid + i, bookid);
                 //篇
                 for (int partNum = 1; partNum < arrSection.Length; partNum++)
-                {
+                { 
                     //篇
                     string[] arrPart = arrSection[partNum].Split(new string[] { "$unit$" }, StringSplitOptions.RemoveEmptyEntries);
                     StringBuilder sbPart = new StringBuilder();
