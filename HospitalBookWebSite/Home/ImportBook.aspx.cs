@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 using Module.Models;
+using Module.Utils;
 
 namespace HospitalBookWebSite.Home
 {
@@ -16,7 +17,19 @@ namespace HospitalBookWebSite.Home
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(!Page.IsPostBack)
+            {
+                BindDDLBook();
+            }
+        }
+
+        private void BindDDLBook()
+        {
+            List<Sys_Module> list = Sys_Module.Query("where parent_module_id=1").ToList();
+            foreach(Sys_Module sys in list)
+            {
+                this.ddlBook.Items.Add(new ListItem(sys.MODULE_NAME, sys.MODULE_ID.ToString()));
+            }
         }
 
         protected void btnCheck_Click(object sender, EventArgs e)
@@ -24,149 +37,162 @@ namespace HospitalBookWebSite.Home
             this.btnImportDB.Enabled = false;
 
             #region 测试的xml文件
-            string str = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
-<root>
-  <section title=""第一部分 基础医学综合"" id="""" parentid="""">
-    <part title=""第一篇　生 物 化 学"" id="""" parentid="""">
-      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-
-]]>
-        </point>
-      </unit>
-      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-
-]]>
-        </point>
-      </unit>
-    </part>
-    <part title=""第二篇　生 物 化 学"" id="""" parentid="""">
-      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-
-]]>
-        </point>
-      </unit>
-      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-
-]]>
-        </point>
-      </unit>
-    </part>
-    <part title=""第三篇　生 物 化 学2"" id="""" parentid="""">
-      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-
-]]>
-        </point>
-      </unit>
-      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-
-]]>
-        </point>
-      </unit>
-    </part>
-  </section>
-  <section title=""第二部分 基础医学综合"" id="""" parentid="""">
-    <part title=""第一篇　生 物 化 学"" id="""" parentid="""">
-      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-
-]]>
-        </point>
-      </unit>
-      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-
-]]>
-        </point>
-      </unit>
-    </part>
-    <part title=""第二篇　生 物 化 学"" id="""" parentid="""">
-      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-
-]]>
-        </point>
-      </unit>
-      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
-        <point parentid="""">
-          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
-采分点n
-]]>
-        </point>
-      </unit>
-    </part>
-  </section>
-</root>
-";
+//            string str = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
+//<root>
+//  <section title=""第一部分 基础医学综合"" id="""" parentid="""">
+//    <part title=""第一篇　生 物 化 学"" id="""" parentid="""">
+//      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//
+//]]>
+//        </point>
+//      </unit>
+//      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//
+//]]>
+//        </point>
+//      </unit>
+//    </part>
+//    <part title=""第二篇　生 物 化 学"" id="""" parentid="""">
+//      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//
+//]]>
+//        </point>
+//      </unit>
+//      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//
+//]]>
+//        </point>
+//      </unit>
+//    </part>
+//    <part title=""第三篇　生 物 化 学2"" id="""" parentid="""">
+//      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//
+//]]>
+//        </point>
+//      </unit>
+//      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//
+//]]>
+//        </point>
+//      </unit>
+//    </part>
+//  </section>
+//  <section title=""第二部分 基础医学综合"" id="""" parentid="""">
+//    <part title=""第一篇　生 物 化 学"" id="""" parentid="""">
+//      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//
+//]]>
+//        </point>
+//      </unit>
+//      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//
+//]]>
+//        </point>
+//      </unit>
+//    </part>
+//    <part title=""第二篇　生 物 化 学"" id="""" parentid="""">
+//      <unit title=""第一单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//
+//]]>
+//        </point>
+//      </unit>
+//      <unit title=""第二单元　蛋白质的结构与功能"" id="""" parentid="""">
+//        <point parentid="""">
+//          <![CDATA[采分点1：蛋白质的基本结构单位是氨基酸。
+//采分点n
+//]]>
+//        </point>
+//      </unit>
+//    </part>
+//  </section>
+//</root>
+//";
             #endregion
-            int bookid = 3;
-            int beginId = bookid*1000;
-            Sys_Module moduleMax = CoreDB.Record<Sys_Module>.SingleOrDefault("select top 1 * from  Sys_Module order by MODULE_ID desc");
-            if(moduleMax!=null)
+            string str = this.txtBookXML2.Text.Trim();
+
+            int bookid =Convert.ToInt32(this.ddlBook.SelectedValue);
+            List<Sys_Module> list = Sys_Module.Query("where parent_module_id=@0", bookid).ToList();
+            if (list != null && list.Count > 0)
             {
-                beginId = moduleMax.MODULE_ID + 1;
+                MessageBox.Show("该书籍下面已经有内容，请选择其他书籍", Page, "aa");
+                return;
             }
-            try
+            else
             {
-                XmlDocument xmlDoc = new XmlDocument();
-                //从选择题 中的tab页面获取xml
-                xmlDoc.LoadXml(str);
-                this.txtBookXML2.Text = xmlDoc.OuterXml;
-                //<root><data name="专业实务 "><section
-                XmlNodeList nodeSectionList = xmlDoc.SelectNodes(@"root/section");
-                XmlNodeList nodePartList = xmlDoc.SelectNodes(@"root/section/part");
-                XmlNodeList nodeUnitList = xmlDoc.SelectNodes(@"root/section/part/unit");
-                
-                for(int sectionNum=0;sectionNum<nodeSectionList.Count;sectionNum++)
-                {
-                    nodeSectionList[sectionNum].Attributes["id"].Value = Convert.ToString(beginId + sectionNum);
-                    nodeSectionList[sectionNum].Attributes["parentid"].Value = bookid.ToString();
-                }
 
-                for (int partNum = 0; partNum < nodePartList.Count; partNum++)
+                int beginId = bookid * 1000;
+                Sys_Module moduleMax = CoreDB.Record<Sys_Module>.SingleOrDefault("select top 1 * from  Sys_Module order by MODULE_ID desc");
+                if (moduleMax != null)
                 {
-                    nodePartList[partNum].Attributes["id"].Value = Convert.ToString(beginId + nodeSectionList.Count + partNum);
-                    nodePartList[partNum].Attributes["parentid"].Value = nodePartList[partNum].ParentNode.Attributes["id"].Value;
+                    beginId = moduleMax.MODULE_ID + 1;
                 }
+                try
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    //从选择题 中的tab页面获取xml
+                    xmlDoc.LoadXml(str);
+                    this.txtBookXML2.Text = xmlDoc.OuterXml;
+                    //<root><data name="专业实务 "><section
+                    XmlNodeList nodeSectionList = xmlDoc.SelectNodes(@"root/section");
+                    XmlNodeList nodePartList = xmlDoc.SelectNodes(@"root/section/part");
+                    XmlNodeList nodeUnitList = xmlDoc.SelectNodes(@"root/section/part/unit");
 
-                for (int unitNum = 0; unitNum < nodeUnitList.Count; unitNum++)
-                {
-                    nodeUnitList[unitNum].Attributes["id"].Value = Convert.ToString(beginId + nodeSectionList.Count + nodePartList.Count + unitNum);
-                    nodeUnitList[unitNum].Attributes["parentid"].Value = nodeUnitList[unitNum].ParentNode.Attributes["id"].Value;
-                    nodeUnitList[unitNum].ChildNodes[0].Attributes["parentid"].Value = nodeUnitList[unitNum].Attributes["id"].Value;
+                    for (int sectionNum = 0; sectionNum < nodeSectionList.Count; sectionNum++)
+                    {
+                        nodeSectionList[sectionNum].Attributes["id"].Value = Convert.ToString(beginId + sectionNum);
+                        nodeSectionList[sectionNum].Attributes["parentid"].Value = bookid.ToString();
+                    }
+
+                    for (int partNum = 0; partNum < nodePartList.Count; partNum++)
+                    {
+                        nodePartList[partNum].Attributes["id"].Value = Convert.ToString(beginId + nodeSectionList.Count + partNum);
+                        nodePartList[partNum].Attributes["parentid"].Value = nodePartList[partNum].ParentNode.Attributes["id"].Value;
+                    }
+
+                    for (int unitNum = 0; unitNum < nodeUnitList.Count; unitNum++)
+                    {
+                        nodeUnitList[unitNum].Attributes["id"].Value = Convert.ToString(beginId + nodeSectionList.Count + nodePartList.Count + unitNum);
+                        nodeUnitList[unitNum].Attributes["parentid"].Value = nodeUnitList[unitNum].ParentNode.Attributes["id"].Value;
+                        nodeUnitList[unitNum].ChildNodes[0].Attributes["parentid"].Value = nodeUnitList[unitNum].Attributes["id"].Value;
+                    }
+                    this.txtBookXML2.Text = xmlDoc.OuterXml;
+                    if (nodeUnitList.Count > 0)
+                    {
+                        this.Label1.Text = "总共有" + nodeUnitList.Count.ToString() + "单元";
+                        this.btnImportDB.Enabled = true;
+                    }
                 }
-                this.txtBookXML2.Text = xmlDoc.OuterXml;
-                if (nodeUnitList.Count > 0)
+                catch (Exception ex)
                 {
-                    this.Label1.Text = "总共有" + nodeUnitList.Count.ToString() + "单元";
-                    this.btnImportDB.Enabled = true;
+                    this.txtResult.Text = ex.Message + ex.Source + ex.StackTrace;
                 }
-            }catch(Exception ex)
-            {
-                this.txtResult.Text = ex.Message + ex.Source + ex.StackTrace;
             }
         }
 
@@ -325,6 +351,7 @@ namespace HospitalBookWebSite.Home
                     db.Execute(strSql);
                     scope.Complete();
                 }
+                this.txtResult.Text = "导入成功";
             }catch(Exception ex)
             {
                 this.txtResult.Text = ex.Message + ex.Source + ex.StackTrace;

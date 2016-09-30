@@ -49,12 +49,12 @@
          第二单元　蛋白质的结构与功能
          采分点1：蛋白质的基本结构单位是氨基酸。
          采分点n       </asp:TextBox></td>
-                <td>&nbsp;<asp:Button ID="btnImport0" runat="server" Height="145px" OnClick="btnImport0_Click" Text="转换1--&gt;" Width="76px" />
+                <td>&nbsp;<asp:Button ID="btnImport0" runat="server" Height="145px" OnClick="btnImport0_Click" Text="1、转换--&gt;" Width="76px" />
                     &nbsp;</td>
                 <td>
                     <asp:TextBox ID="txtBookxml" runat="server" Height="402px" TextMode="MultiLine" Width="412px"></asp:TextBox></td>
             </tr>
-            <tr><td></td><td></td><td><asp:Button ID="btnTransfor2" runat="server" Height="77px"  Text="转换2--&gt;" Width="353px" OnClick="btnTransfor2_Click" />
+            <tr><td></td><td></td><td><asp:Button ID="btnTransfor2" runat="server" Height="77px"  Text="2、转换--&gt;" Width="353px" OnClick="btnTransfor2_Click" />
                     </td></tr>
             <tr>
                 <td>
@@ -63,11 +63,16 @@
 
 
 
-            <asp:Button ID="btnCheck" runat="server" OnClick="btnCheck_Click" Text="检查XML合法性" Height="48px" Width="95px" />
+                    <asp:DropDownList ID="ddlBook" runat="server">
+                    </asp:DropDownList>
+
+
+
+            <asp:Button ID="btnCheck" runat="server" OnClick="btnCheck_Click" Text="检查XML合法性3" Height="48px" Width="95px" />
                     <br />
                     <asp:Label ID="Label1" runat="server" ForeColor="#FF3300"></asp:Label>
                     <br />
-                    <asp:Button ID="btnImportDB" runat="server" Height="145px" OnClick="btnImportDB_Click" Text="&lt;-导入DB" Width="87px" Enabled="False" />
+                    <asp:Button ID="btnImportDB" runat="server" Height="145px" OnClick="btnImportDB_Click" Text="&lt;-4、导入DB" Width="87px" Enabled="False" />
                     &nbsp;</td>
                 <td>
                     <asp:TextBox ID="txtBookXML2" runat="server" Height="402px" TextMode="MultiLine" Width="412px"></asp:TextBox></td>
