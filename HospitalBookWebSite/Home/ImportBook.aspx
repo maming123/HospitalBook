@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ImportBook.aspx.cs" Inherits="HospitalBookWebSite.Home.ImportBook" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ImportBook.aspx.cs" Inherits="HospitalBookWebSite.Home.ImportBook" ValidateRequest="false" %>
 
 <!DOCTYPE html>
 
@@ -21,6 +21,13 @@
              采分点1：蛋白质的基本结构单位是氨基酸。
              采分点n    
      第二篇　生 物 化 学
+         第一单元　蛋白质的结构与功能
+         采分点1：蛋白质的基本结构单位是氨基酸。
+         采分点n
+         第二单元　蛋白质的结构与功能
+         采分点1：蛋白质的基本结构单位是氨基酸。
+         采分点n       
+     第三篇　生 物 化 学2
          第一单元　蛋白质的结构与功能
          采分点1：蛋白质的基本结构单位是氨基酸。
          采分点n
