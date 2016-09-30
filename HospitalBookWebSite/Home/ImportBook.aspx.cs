@@ -124,6 +124,11 @@ namespace HospitalBookWebSite.Home
             #endregion
             int bookid = 3;
             int beginId = bookid*1000;
+            Sys_Module moduleMax = CoreDB.Record<Sys_Module>.SingleOrDefault("select top 1 * from  Sys_Module order by MODULE_ID desc");
+            if(moduleMax!=null)
+            {
+                beginId = moduleMax.MODULE_ID + 1;
+            }
             try
             {
                 XmlDocument xmlDoc = new XmlDocument();
@@ -280,15 +285,11 @@ namespace HospitalBookWebSite.Home
         //把整理好的XML导入数据库
         protected void btnImportDB_Click(object sender, EventArgs e)
         {
+            string strXML =this.txtBookXML2.Text.Trim();
+            List<Sys_Point> listPoint =new List<Sys_Point>();
+            List<Sys_Module> listModule = GetList(strXML, listPoint);
+
             //用事务处理 把xml导入数据库
-            XmlDocument xmlDoc = new XmlDocument();
-            //从选择题 中的tab页面获取xml
-            xmlDoc.LoadXml(this.txtBookXML2.Text.Trim());
-            
-            //<root><data name="专业实务 "><section
-            XmlNodeList nodeSectionList = xmlDoc.SelectNodes(@"root/section");
-            XmlNodeList nodePartList = xmlDoc.SelectNodes(@"root/section/part");
-            XmlNodeList nodeUnitList = xmlDoc.SelectNodes(@"root/section/part/unit");
             try
             {
                 var db = CoreDB.GetInstance();
@@ -296,14 +297,15 @@ namespace HospitalBookWebSite.Home
                 {
                     string strSql = "SET IDENTITY_INSERT Sys_Module ON";
                     db.Execute(strSql);
-                    for (int sectionNum = 0; sectionNum < nodeSectionList.Count; sectionNum++)
+                    for (int sectionNum = 0; sectionNum < listModule.Count; sectionNum++)
                     {
                        
-                        int    MODULE_ID = Convert.ToInt32(nodeSectionList[sectionNum].Attributes["id"].Value);
+                        int    MODULE_ID = listModule[sectionNum].MODULE_ID;
                             
-                         string   MODULE_NAME = nodeSectionList[sectionNum].Attributes["title"].Value;
-                        
-                         int   PARENT_MODULE_ID = Convert.ToInt32(nodeSectionList[sectionNum].Attributes["parentid"].Value);
+                         string   MODULE_NAME = listModule[sectionNum].MODULE_NAME;
+
+                         int PARENT_MODULE_ID = Convert.ToInt32(listModule[sectionNum].PARENT_MODULE_ID);
+
                          strSql = string.Format(@"INSERT INTO [Sys_Module]
                                                        (
                                                        MODULE_ID
@@ -315,6 +317,10 @@ namespace HospitalBookWebSite.Home
                                                        ({0},'{1}',{2},1)", MODULE_ID, MODULE_NAME, PARENT_MODULE_ID);
                          db.Execute(strSql);
                     }
+                    for (int i = 0; i < listPoint.Count;i++)
+                    {
+                        db.Insert(listPoint[i]);
+                    }
                     strSql = "SET IDENTITY_INSERT Sys_Module OFF";
                     db.Execute(strSql);
                     scope.Complete();
@@ -323,25 +329,88 @@ namespace HospitalBookWebSite.Home
             {
                 this.txtResult.Text = ex.Message + ex.Source + ex.StackTrace;
             }
+
             
-            //for (int sectionNum = 0; sectionNum < nodeSectionList.Count; sectionNum++)
-            //{
-            //    nodeSectionList[sectionNum].Attributes["id"].Value = Convert.ToString(beginId + sectionNum);
-            //    nodeSectionList[sectionNum].Attributes["parentid"].Value = beginId.ToString();
-            //}
+        }
 
-            //for (int partNum = 0; partNum < nodePartList.Count; partNum++)
-            //{
-            //    nodePartList[partNum].Attributes["id"].Value = Convert.ToString(beginId + nodeSectionList.Count + partNum);
-            //    nodePartList[partNum].Attributes["parentid"].Value = nodePartList[partNum].ParentNode.Attributes["id"].Value;
-            //}
+        private List<Sys_Module> GetList(string strXML,List<Sys_Point> listPoint)
+        {
+            
+            List<Sys_Module> list = new List<Sys_Module>();
+            XmlDocument xmlDoc = new XmlDocument();
+            //从选择题 中的tab页面获取xml
+            xmlDoc.LoadXml(strXML.Trim());
 
-            //for (int unitNum = 0; unitNum < nodeUnitList.Count; unitNum++)
-            //{
-            //    nodeUnitList[unitNum].Attributes["id"].Value = Convert.ToString(beginId + nodeSectionList.Count + nodePartList.Count + unitNum);
-            //    nodeUnitList[unitNum].Attributes["parentid"].Value = nodeUnitList[unitNum].ParentNode.Attributes["id"].Value;
-            //    nodeUnitList[unitNum].ChildNodes[0].Attributes["parentid"].Value = nodeUnitList[unitNum].Attributes["id"].Value;
-            //}
+            //<root><data name="专业实务 "><section
+            XmlNodeList nodeSectionList = xmlDoc.SelectNodes(@"root/section");
+            XmlNodeList nodePartList = xmlDoc.SelectNodes(@"root/section/part");
+            XmlNodeList nodeUnitList = xmlDoc.SelectNodes(@"root/section/part/unit");
+            for (int sectionNum = 0; sectionNum < nodeSectionList.Count; sectionNum++)
+            {
+                Sys_Module sys = new Sys_Module() { 
+                
+                    MODULE_ID = Convert.ToInt32(nodeSectionList[sectionNum].Attributes["id"].Value)
+                            
+                      ,   MODULE_NAME = nodeSectionList[sectionNum].Attributes["title"].Value
+                        
+                        ,  PARENT_MODULE_ID = Convert.ToInt32(nodeSectionList[sectionNum].Attributes["parentid"].Value)
+                        , IS_DISPLAY=1
+                };
+                list.Add(sys);
+            }
+
+            for (int partNum = 0; partNum < nodePartList.Count; partNum++)
+            {
+                Sys_Module sys = new Sys_Module()
+                {
+
+                    MODULE_ID = Convert.ToInt32(nodePartList[partNum].Attributes["id"].Value)
+
+                    ,
+                    MODULE_NAME = nodePartList[partNum].Attributes["title"].Value
+
+                    ,
+                    PARENT_MODULE_ID = Convert.ToInt32(nodePartList[partNum].Attributes["parentid"].Value)
+                    ,
+                    IS_DISPLAY = 1
+                };
+                list.Add(sys);
+
+            }
+
+            Sys_Point pointMax = CoreDB.Record<Sys_Point>.SingleOrDefault("select top 1 * from  Sys_Point order by Id desc");
+            if(pointMax==null)
+            {
+                pointMax = new Sys_Point() {  Id=1};
+            }
+            for (int unitNum = 0; unitNum < nodeUnitList.Count; unitNum++)
+            {
+                Sys_Module sys = new Sys_Module()
+                {
+
+                    MODULE_ID = Convert.ToInt32(nodeUnitList[unitNum].Attributes["id"].Value)
+
+                    ,
+                    MODULE_NAME = nodeUnitList[unitNum].Attributes["title"].Value
+
+                    ,
+                    PARENT_MODULE_ID = Convert.ToInt32(nodeUnitList[unitNum].Attributes["parentid"].Value)
+                    ,
+                    IS_DISPLAY = 1
+                };
+                list.Add(sys);
+
+                Sys_Point point = new Sys_Point() {
+                    ModulelId = Convert.ToInt32(nodeUnitList[unitNum].ChildNodes[0].Attributes["parentid"].Value)
+                    ,
+                    Id = pointMax.Id+unitNum+1
+                    , CreateDateTime=DateTime.Now
+                    ,
+                    Content = nodeUnitList[unitNum].ChildNodes[0].InnerXml
+                };
+                listPoint.Add(point);
+            }
+            return list;
         }
 
         protected void btnTransfor2_Click(object sender, EventArgs e)
