@@ -433,7 +433,7 @@ namespace HospitalBookWebSite.Home
                     Id = pointMax.Id+unitNum+1
                     , CreateDateTime=DateTime.Now
                     ,
-                    Content = nodeUnitList[unitNum].ChildNodes[0].InnerXml
+                    Content = nodeUnitList[unitNum].FirstChild.FirstChild.Value
                 };
                 listPoint.Add(point);
             }
@@ -524,6 +524,66 @@ namespace HospitalBookWebSite.Home
             }
             sbAll.AppendFormat(@"</root>");
             return sbAll.ToString();
+        }
+
+        protected void btnExportXMLFromDB_Click(object sender, EventArgs e)
+        {
+            int bookid = Convert.ToInt32(this.ddlBook.SelectedValue);
+            string bookName =this.ddlBook.SelectedItem.Text;
+            List<Sys_Module> listSection = Sys_Module.Query(@" where parent_module_id=@0", bookid).ToList();
+            
+            XmlDocument document = new XmlDocument();
+            XmlDeclaration declaration = document.CreateXmlDeclaration("1.0", "UTF-8", "");//xml文档的声明部分  
+            document.AppendChild(declaration);  
+            XmlElement root = document.CreateElement("root");
+            document.AppendChild(root);
+
+            foreach(Sys_Module section in listSection)
+            {
+                XmlElement sectionXe = document.CreateElement("section");
+                sectionXe.SetAttribute("title", section.MODULE_NAME);
+                sectionXe.SetAttribute("id", section.MODULE_ID.ToString());
+                sectionXe.SetAttribute("parentid", section.PARENT_MODULE_ID.ToString()); 
+                root.AppendChild(sectionXe);
+                List<Sys_Module> listPart = Sys_Module.Query(@" where parent_module_id=@0", section.MODULE_ID).ToList();
+                foreach(Sys_Module part in listPart)
+                {
+                    XmlElement partXe = document.CreateElement("part");
+                    partXe.SetAttribute("title", part.MODULE_NAME);
+                    partXe.SetAttribute("id", part.MODULE_ID.ToString());
+                    partXe.SetAttribute("parentid", part.PARENT_MODULE_ID.ToString());
+                    sectionXe.AppendChild(partXe);
+                    List<Sys_Module> listUnit = Sys_Module.Query(@" where parent_module_id=@0", part.MODULE_ID).ToList();
+                    foreach(Sys_Module unit in listUnit)
+                    {
+                        XmlElement unitXe = document.CreateElement("unit");
+                        unitXe.SetAttribute("title", unit.MODULE_NAME);
+                        unitXe.SetAttribute("id", unit.MODULE_ID.ToString());
+                        unitXe.SetAttribute("parentid", unit.PARENT_MODULE_ID.ToString());
+                        partXe.AppendChild(unitXe);
+                        List<Sys_Point> listPoint = Sys_Point.Query(@" where ModulelId=@0", unit.MODULE_ID).ToList();
+                        foreach(Sys_Point point in listPoint)
+                        {
+                            XmlElement pointXe = document.CreateElement("point");
+                            pointXe.SetAttribute("id", point.Id.ToString());
+                            pointXe.SetAttribute("parentid", point.ModulelId.ToString());
+                            pointXe.AppendChild(document.CreateCDataSection(point.Content));
+                            unitXe.AppendChild(pointXe);
+                        }
+                    }
+                }
+            }
+
+            Response.Clear();
+            Response.AddHeader("content-disposition", "attachment;filename=" + System.Web.HttpUtility.UrlEncode(bookName+DateTime.Now.ToString("yyyyMMddHH:ss"), System.Text.Encoding.UTF8) + ".xml");
+            Response.ContentType = "application/xml";
+            Response.ContentEncoding = System.Text.Encoding.UTF8;
+            Response.Charset = "GB2312";
+
+
+            Response.Write(document.OuterXml);
+            Response.End();
+           
         }
     }
 }
