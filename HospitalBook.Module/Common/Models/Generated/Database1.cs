@@ -285,6 +285,256 @@ namespace Module.Models
 
 	}
 
+    
+	[TableName("Sys_AdminUser")]
+
+
+	[PrimaryKey("Id")]
+
+
+
+	[ExplicitColumns]
+    public partial class Sys_AdminUser : CoreDB.Record<Sys_AdminUser>  
+    {
+
+
+
+		[Column] public int Id { get; set; }
+
+
+
+
+
+		[Column] public string LoginUserName { get; set; }
+
+
+
+
+
+		[Column] public string NickName { get; set; }
+
+
+
+
+
+		[Column] public string PassWord { get; set; }
+
+
+
+
+
+		[Column] public DateTime CreateDateTime { get; set; }
+
+
+
+	}
+
+    
+	[TableName("User")]
+
+
+	[PrimaryKey("Id")]
+
+
+
+	[ExplicitColumns]
+    public partial class User : CoreDB.Record<User>  
+    {
+
+
+
+		[Column] public int Id { get; set; }
+
+
+
+
+
+		[Column] public long Mobile { get; set; }
+
+
+
+
+
+		[Column] public string NickName { get; set; }
+
+
+
+
+
+		[Column] public string PassWord { get; set; }
+
+
+
+
+
+		[Column] public string Email { get; set; }
+
+
+
+
+
+		[Column] public string RegistCode { get; set; }
+
+
+
+
+
+		[Column] public DateTime CreateDateTime { get; set; }
+
+
+
+	}
+
+    
+	[TableName("UserRegistLog")]
+
+
+	[PrimaryKey("Id")]
+
+
+
+	[ExplicitColumns]
+    public partial class UserRegistLog : CoreDB.Record<UserRegistLog>  
+    {
+
+
+
+		[Column] public int Id { get; set; }
+
+
+
+
+
+		[Column] public long Mobile { get; set; }
+
+
+
+
+
+		[Column] public string NickName { get; set; }
+
+
+
+
+
+		[Column] public string PassWord { get; set; }
+
+
+
+
+
+		[Column] public string Email { get; set; }
+
+
+
+
+
+		[Column] public string RegistCode { get; set; }
+
+
+
+
+
+		[Column] public DateTime CreateDateTime { get; set; }
+
+
+
+	}
+
+    
+	[TableName("Sys_RegistCode")]
+
+
+	[PrimaryKey("Id")]
+
+
+
+	[ExplicitColumns]
+    public partial class Sys_RegistCode : CoreDB.Record<Sys_RegistCode>  
+    {
+
+
+
+		[Column] public int Id { get; set; }
+
+
+
+
+
+		[Column] public int BookId { get; set; }
+
+
+
+
+
+		[Column] public string RegistCode { get; set; }
+
+
+
+
+
+		[Column] public int IsEnable { get; set; }
+
+
+
+
+
+		[Column] public DateTime CreateDateTime { get; set; }
+
+
+
+	}
+
+    
+	[TableName("Log")]
+
+
+	[PrimaryKey("log_id")]
+
+
+
+	[ExplicitColumns]
+    public partial class Log : CoreDB.Record<Log>  
+    {
+
+
+
+		[Column] public int log_id { get; set; }
+
+
+
+
+
+		[Column] public DateTime LogDate { get; set; }
+
+
+
+
+
+		[Column] public string descript { get; set; }
+
+
+
+
+
+		[Column] public short logtype { get; set; }
+
+
+
+
+
+		[Column] public string log_info { get; set; }
+
+
+
+
+
+		[Column] public string Module_Name { get; set; }
+
+
+
+	}
+
 
 }
 

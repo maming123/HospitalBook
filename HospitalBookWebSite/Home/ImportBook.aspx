@@ -12,7 +12,7 @@
         <table>
             <tr>
                 <td>
-                    <asp:TextBox ID="txtBook" runat="server" Height="402px" TextMode="MultiLine" Width="412px">第一部分 基础医学综合
+                    <asp:TextBox ID="txtBook" runat="server" Height="271px" TextMode="MultiLine" Width="412px">第一部分 基础医学综合
      第一篇　生 物 化 学
           第一单元　蛋白质的结构与功能
               采分点1：蛋白质的基本结构单位是氨基酸。
@@ -52,18 +52,18 @@
                 <td>&nbsp;<asp:Button ID="btnImport0" runat="server" Height="145px" OnClick="btnImport0_Click" Text="1、转换--&gt;" Width="86px" />
                     &nbsp;</td>
                 <td>
-                    <asp:TextBox ID="txtBookxml" runat="server" Height="402px" TextMode="MultiLine" Width="412px"></asp:TextBox></td>
+                    <asp:TextBox ID="txtBookxml" runat="server" Height="265px" TextMode="MultiLine" Width="412px"></asp:TextBox></td>
             </tr>
-            <tr><td></td><td></td><td><asp:Button ID="btnTransfor2" runat="server" Height="77px"  Text="2、转换--&gt;" Width="353px" OnClick="btnTransfor2_Click" />
+            <tr><td></td><td></td><td><asp:Button ID="btnTransfor2" runat="server" Height="44px"  Text="2、转换--&gt;" Width="353px" OnClick="btnTransfor2_Click" />
                     </td></tr>
             <tr>
                 <td>
-                    <asp:TextBox ID="txtResult" runat="server" Height="402px" TextMode="MultiLine" Width="412px"></asp:TextBox></td>
+                    <asp:TextBox ID="txtResult" runat="server" Height="334px" TextMode="MultiLine" Width="412px" style="margin-bottom: 0px"></asp:TextBox></td>
                 <td>
 
 
 
-                    <asp:DropDownList ID="ddlBook" runat="server">
+                    选择书籍：<asp:DropDownList ID="ddlBook" runat="server">
                     </asp:DropDownList>
 
 
@@ -76,7 +76,7 @@
                     &nbsp;<asp:Button ID="btnExportXMLFromDB" runat="server" Height="88px" OnClick="btnExportXMLFromDB_Click" Text="5、导出书籍-&gt;" Width="101px"/>
                     </td>
                 <td>
-                    <asp:TextBox ID="txtBookXML2" runat="server" Height="402px" TextMode="MultiLine" Width="412px"></asp:TextBox></td>
+                    <asp:TextBox ID="txtBookXML2" runat="server" Height="314px" TextMode="MultiLine" Width="412px"></asp:TextBox></td>
             </tr>
         </table>
         <div>

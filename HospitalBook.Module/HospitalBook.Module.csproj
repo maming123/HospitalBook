@@ -57,6 +57,10 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Common\Models\PetaPoco.cs" />
+    <Compile Include="Common\Utils\EncryptTools.cs" />
+    <Compile Include="Common\Utils\Parser.cs" />
+    <Compile Include="Common\Utils\QuickLoginBusiness.cs" />
+    <Compile Include="LoginAdminUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\SNS.Library\Database\DatabaseFactory.cs" />
     <Compile Include="Common\SNS.Library\Database\DBImageManager.cs" />

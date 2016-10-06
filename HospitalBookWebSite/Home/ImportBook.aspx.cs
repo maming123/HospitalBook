@@ -552,6 +552,7 @@ namespace HospitalBookWebSite.Home
                     partXe.SetAttribute("title", part.MODULE_NAME);
                     partXe.SetAttribute("id", part.MODULE_ID.ToString());
                     partXe.SetAttribute("parentid", part.PARENT_MODULE_ID.ToString());
+                    partXe.SetAttribute("display", part.IS_DISPLAY.ToString());
                     sectionXe.AppendChild(partXe);
                     List<Sys_Module> listUnit = Sys_Module.Query(@" where parent_module_id=@0", part.MODULE_ID).ToList();
                     foreach(Sys_Module unit in listUnit)
@@ -575,7 +576,7 @@ namespace HospitalBookWebSite.Home
             }
 
             Response.Clear();
-            Response.AddHeader("content-disposition", "attachment;filename=" + System.Web.HttpUtility.UrlEncode(bookName+DateTime.Now.ToString("yyyyMMddHH:ss"), System.Text.Encoding.UTF8) + ".xml");
+            Response.AddHeader("content-disposition", "attachment;filename=" + System.Web.HttpUtility.UrlEncode(bookName+DateTime.Now.ToString("yyyyMMddHHss"), System.Text.Encoding.UTF8) + ".xml");
             Response.ContentType = "application/xml";
             Response.ContentEncoding = System.Text.Encoding.UTF8;
             Response.Charset = "GB2312";
