@@ -57,7 +57,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\admin.content.css" />
+    <Content Include="css\admin.global.css" />
+    <Content Include="Global.asax" />
     <Content Include="Home\EditPoint.aspx" />
+    <Content Include="Home\Login\EditPassword.aspx" />
+    <Content Include="Home\Login\LoginOut.aspx" />
+    <Content Include="Home\RegistCodeManage.aspx" />
+    <Content Include="Home\UserManage.aspx" />
     <Content Include="images\Query\00000001_r1_c1.gif" />
     <Content Include="images\Query\00000001_r1_c2.gif" />
     <Content Include="images\Query\00000001_r1_c3.gif" />
@@ -444,6 +451,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Home\EditPoint.aspx.cs">
       <DependentUpon>EditPoint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -468,6 +478,13 @@
     <Compile Include="Home\Login\CodePngComplex.ashx.cs">
       <DependentUpon>CodePngComplex.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Home\Login\EditPassword.aspx.cs">
+      <DependentUpon>EditPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\Login\EditPassword.aspx.designer.cs">
+      <DependentUpon>EditPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home\Login\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -475,8 +492,22 @@
     <Compile Include="Home\Login\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Home\Login\LoginOut.aspx.cs">
+      <DependentUpon>LoginOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\Login\LoginOut.aspx.designer.cs">
+      <DependentUpon>LoginOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home\ManagePageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\RegistCodeManage.aspx.cs">
+      <DependentUpon>RegistCodeManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\RegistCodeManage.aspx.designer.cs">
+      <DependentUpon>RegistCodeManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home\SystemModule\Sys\Modules\add.aspx.cs">
       <DependentUpon>add.aspx</DependentUpon>
@@ -505,6 +536,13 @@
     </Compile>
     <Compile Include="Home\SystemModule\Sys\Modules\selectparentmodule.aspx.designer.cs">
       <DependentUpon>selectparentmodule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\UserManage.aspx.cs">
+      <DependentUpon>UserManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\UserManage.aspx.designer.cs">
+      <DependentUpon>UserManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

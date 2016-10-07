@@ -50,7 +50,7 @@
     <div data-options="region:'north',border:false" style="background: #B3DFDA; padding: 10px">
         后台管理系统&nbsp;&nbsp;&nbsp;<%=LoginUserName %>
         
-        <a href="/FetionActivity/LoginOut.aspx?U=/default.aspx">退出登录</a>
+        <a href="/home/login/LoginOut.aspx?U=/home/login/index.aspx">退出登录</a>
     </div>
     <div data-options="region:'west',split:false,title:'导航菜单'" style="width: 260px; padding: 10px;">
 
@@ -60,13 +60,13 @@
                     <ul class="tempul">
                         <li><a href="javascript:void(0)" onclick="addTab('书籍管理','SystemModule/Sys/Modules/modulelist.aspx')">书籍管理</a></li>
                         <li><a href="javascript:void(0)" onclick="addTab('导入导出管理','ImportBook.aspx')">导入导出管理</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('注册用户管理','')">注册用户管理</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('书籍注册码管理','')">书籍注册码管理</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('注册用户管理','UserManage.aspx')">注册用户管理</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('书籍注册码管理','RegistCodeManage.aspx')">书籍注册码管理</a></li>
                     </ul>
                 </div>
                 <div title="系统管理" data-options="collapsed:false,collapsible:false" style="padding: 10px;">
                     <ul class="tempul">
-                        <li><a href="javascript:void(0)" onclick="addTab('密码修改','')">密码修改</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('密码修改','Login/EditPassword.aspx')">密码修改</a></li>
                     </ul>
                 </div>
             </div>

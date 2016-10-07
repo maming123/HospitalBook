@@ -24,8 +24,7 @@ namespace Module.DataAccess
 
             public static string ProviderName = "System.Data.SqlClient";
 
-            public static readonly string MLK = ConfigurationManager.ConnectionStrings["MLK"].ConnectionString;
-            public static readonly string PubMLK = ConfigurationManager.ConnectionStrings["pubMLK"].ConnectionString;
+            public static readonly string Core = ConfigurationManager.ConnectionStrings["Core"].ConnectionString;
 
         }
     
