@@ -247,7 +247,7 @@ namespace SNS.Library.Database
         private static IDatabase CreateObject(int timeout,bool isNew)
         {
             //Data Source=127.0.0.1;Initial Catalog=pubmlk;User ID=mlkdb;Password=mlkdb@2015
-            string Conn = ConfigurationManager.ConnectionStrings["MLK"].ConnectionString;
+            string Conn = ConfigurationManager.ConnectionStrings["Core"].ConnectionString;
             string [] strArr =Conn.Split(';');
                 s_serverName=strArr[0].Split('=')[1];
                 s_databaseName = strArr[1].Split('=')[1]; ;

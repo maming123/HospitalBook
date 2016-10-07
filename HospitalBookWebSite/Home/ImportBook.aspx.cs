@@ -13,7 +13,7 @@ using Module.Utils;
 
 namespace HospitalBookWebSite.Home
 {
-    public partial class ImportBook : System.Web.UI.Page
+    public partial class ImportBook : HospitalBook.WebSite.Home.ManagePageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

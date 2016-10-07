@@ -173,6 +173,12 @@ namespace Module.Models
 
 
 
+
+
+		[Column] public DateTime? UpdateDateTime { get; set; }
+
+
+
 	}
 
     

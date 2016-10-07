@@ -57,6 +57,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Home\EditPoint.aspx" />
+    <Content Include="images\Query\00000001_r1_c1.gif" />
+    <Content Include="images\Query\00000001_r1_c2.gif" />
+    <Content Include="images\Query\00000001_r1_c3.gif" />
+    <Content Include="images\Query\00000001_r1_c4.gif" />
+    <Content Include="images\Query\00000001_r2_c1.gif" />
+    <Content Include="images\Query\00000001_r2_c4.gif" />
+    <Content Include="images\Query\00000001_r3_c1.gif" />
+    <Content Include="images\Query\00000001_r3_c2.gif" />
+    <Content Include="images\Query\00000001_r3_c4.gif" />
+    <Content Include="images\Query\item.gif" />
+    <Content Include="images\Query\jilu.gif" />
+    <Content Include="images\Query\title_bg.jpg" />
+    <Content Include="images\winfo\LevelDown.gif" />
+    <Content Include="images\winfo\LevelUp.gif" />
     <Content Include="Home\ImportBook.aspx" />
     <Content Include="Home\Index.aspx" />
     <Content Include="Home\Login\css\default.css" />
@@ -66,7 +81,13 @@
     <Content Include="Home\Login\images\pattern_slash.gif" />
     <Content Include="Home\Login\Index.aspx" />
     <Content Include="Home\Login\js\common.js" />
+    <Content Include="css\sysmodule.css" />
+    <Content Include="Home\SystemModule\Sys\Modules\add.aspx" />
+    <Content Include="Home\SystemModule\Sys\Modules\edit.aspx" />
+    <Content Include="Home\SystemModule\Sys\Modules\modulelist.aspx" />
+    <Content Include="Home\SystemModule\Sys\Modules\selectparentmodule.aspx" />
     <Content Include="js\bdCount.js" />
+    <Content Include="js\common.js" />
     <Content Include="js\easyui-1.4.1\changelog.txt" />
     <Content Include="js\easyui-1.4.1\easyloader.js" />
     <Content Include="js\easyui-1.4.1\jquery.easyui.min.js" />
@@ -211,6 +232,7 @@
     <Content Include="js\easyui-1.4.1\themes\icons\tip.png" />
     <Content Include="js\easyui-1.4.1\themes\icons\undo.png" />
     <Content Include="js\jquery-1.11.0.min.js" />
+    <Content Include="js\jquery-1.11.1.min.js" />
     <Content Include="js\jquery-1.9.1.min.js" />
     <Content Include="js\kindeditor-4.1.10\asp.net\bin\LitJSON.dll" />
     <Content Include="js\kindeditor-4.1.10\asp.net\demo.aspx" />
@@ -418,9 +440,17 @@
     <Content Include="js\layer\skin\default\xubox_loading3.gif" />
     <Content Include="js\layer\skin\default\xubox_title0.png" />
     <Content Include="js\layer\skin\layer.css" />
+    <Content Include="js\validate.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Home\EditPoint.aspx.cs">
+      <DependentUpon>EditPoint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\EditPoint.aspx.designer.cs">
+      <DependentUpon>EditPoint.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home\ImportBook.aspx.cs">
       <DependentUpon>ImportBook.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -447,6 +477,34 @@
     </Compile>
     <Compile Include="Home\ManagePageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\SystemModule\Sys\Modules\add.aspx.cs">
+      <DependentUpon>add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\SystemModule\Sys\Modules\add.aspx.designer.cs">
+      <DependentUpon>add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\SystemModule\Sys\Modules\edit.aspx.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\SystemModule\Sys\Modules\edit.aspx.designer.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\SystemModule\Sys\Modules\modulelist.aspx.cs">
+      <DependentUpon>modulelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\SystemModule\Sys\Modules\modulelist.aspx.designer.cs">
+      <DependentUpon>modulelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\SystemModule\Sys\Modules\selectparentmodule.aspx.cs">
+      <DependentUpon>selectparentmodule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\SystemModule\Sys\Modules\selectparentmodule.aspx.designer.cs">
+      <DependentUpon>selectparentmodule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -56,22 +56,17 @@
 
         <div id="accordion" class="easyui-accordion" style="width: 260px; height: auto;">
 
-                <div title="配置管理" data-options="collapsed:false,collapsible:false" style="padding: 10px;">
+                <div title="功能管理" data-options="collapsed:false,collapsible:false" style="padding: 10px;">
                     <ul class="tempul">
-                        <li><a href="javascript:void(0)" onclick="addTab('内容管理','Role/InfoManage.aspx')">内容</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('配置管理','Role/SettingManage.aspx')">配置</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('windows服务配置管理','Role/WSSettingManage.aspx?id=1')">windows服务配置管理</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('批量删除服务配置管理','Role/WSSettingManage.aspx?id=2')">批量删除服务配置管理</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('异步群发服务配置管理','Role/WSSettingManage.aspx?id=3')">异步群发服务配置管理</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('书籍管理','SystemModule/Sys/Modules/modulelist.aspx')">书籍管理</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('导入导出管理','ImportBook.aspx')">导入导出管理</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('注册用户管理','')">注册用户管理</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('书籍注册码管理','')">书籍注册码管理</a></li>
                     </ul>
                 </div>
-                <div title="配置管理" data-options="collapsed:false,collapsible:false" style="padding: 10px;">
+                <div title="系统管理" data-options="collapsed:false,collapsible:false" style="padding: 10px;">
                     <ul class="tempul">
-                        <li><a href="javascript:void(0)" onclick="addTab('内容管理','Role/InfoManage.aspx')">内容</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('配置管理','Role/SettingManage.aspx')">配置</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('windows服务配置管理','Role/WSSettingManage.aspx?id=1')">windows服务配置管理</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('批量删除服务配置管理','Role/WSSettingManage.aspx?id=2')">批量删除服务配置管理</a></li>
-                        <li><a href="javascript:void(0)" onclick="addTab('异步群发服务配置管理','Role/WSSettingManage.aspx?id=3')">异步群发服务配置管理</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('密码修改','')">密码修改</a></li>
                     </ul>
                 </div>
             </div>

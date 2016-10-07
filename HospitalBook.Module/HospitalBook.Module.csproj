@@ -87,6 +87,15 @@
     <Compile Include="Common\Utils\ReturnJsonType.cs" />
     <Compile Include="Common\Utils\TypeConvert.cs" />
     <Compile Include="Common\Utils\UnitCommon.cs" />
+    <Compile Include="Sys\SystemModules\Module.cs" />
+    <Compile Include="Sys\SystemModules\ModuleDAO.cs" />
+    <Compile Include="Sys\SystemModules\ModuleDAOFactory.cs" />
+    <Compile Include="Sys\SystemModules\ModuleDAOImplSQLServer.cs" />
+    <Compile Include="Sys\SystemUsers\Group.cs" />
+    <Compile Include="Sys\SystemUsers\GroupDAO.cs" />
+    <Compile Include="Sys\SystemUsers\GroupDAOFactory.cs" />
+    <Compile Include="Sys\SystemUsers\GroupDAOImplSQLServer.cs" />
+    <Compile Include="Sys\SystemUsers\UserRight.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Common\Models\Generated\Database.tt">
