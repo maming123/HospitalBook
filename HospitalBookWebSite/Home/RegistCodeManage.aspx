@@ -18,7 +18,7 @@
                     </asp:DropDownList>
         已有号码数量：<asp:Label ID="lblHaveCodeNum" runat="server" Font-Bold="True"></asp:Label>个，还要生成的号码数量:<asp:TextBox ID="txtCodeNum" runat="server"></asp:TextBox><asp:Button ID="btnGenerate" runat="server" Text="生成" OnClick="btnGenerate_Click" />
     </div>
-
+    查询未使用的100个序列号，按指定序列号查询是否被使用
     </form>
 </body>
 </html>

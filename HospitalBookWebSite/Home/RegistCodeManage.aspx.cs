@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using HospitalBook.Module.Common.Utils;
+using Module.Utils;
 using Module.DataAccess;
 using Module.Models;
 using SNS.Library.Database;

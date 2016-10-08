@@ -59,6 +59,7 @@
     <Compile Include="Common\Models\PetaPoco.cs" />
     <Compile Include="Common\Utils\EncryptTools.cs" />
     <Compile Include="Common\Utils\GenerateSequence.cs" />
+    <Compile Include="Common\Utils\LiveEmail.cs" />
     <Compile Include="Common\Utils\Parser.cs" />
     <Compile Include="Common\Utils\QuickLoginBusiness.cs" />
     <Compile Include="LoginAdminUser.cs" />
