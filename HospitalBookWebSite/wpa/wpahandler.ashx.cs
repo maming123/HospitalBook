@@ -22,17 +22,39 @@ namespace HospitalBookWebSite.wpa
             dictAction.Add("login", login);
             dictAction.Add("getpassword", getpassword);
         }
+
+        /// <summary>
+        /// code值为:
+        /// -117: 非指定省份用户.
+        /// -107: 参数错误.
+        /// -105: 用户未登录.
+        /// -104: 非移动用户.
+        /// -102: 系统错误.
+        /// -101: 活动未开始.
+        /// -100: 活动已结束.
+        /// </summary>
+        /// <returns></returns>
+        private bool IsReady(string token,long mobile)
+        {
+
+            if (token == BaseCommon.MD5(mobile.ToString(), ValidCode))
+            {
+                Response.Write(BaseCommon.ObjectToJson(new ReturnJsonType() { code = 0, message = "秘钥错误" }));
+                return false;
+            }
+            return true;
+            
+        }
         //找回密码
         private void getpassword()
         {
-            string token = RequestKeeper.GetFormString("token");
-            long mobile = RequestKeeper.GetFormLong("mobile");
-            string emailInput = RequestKeeper.GetFormString("email");
+            string token = RequestKeeper.GetFormString(Request["token"]);
+            long mobile = RequestKeeper.GetFormLong(Request["mobile"]);
+            string emailInput = RequestKeeper.GetFormString(Request["email"]);
             
             //判断token是否正确
-            if (token != BaseCommon.MD5(mobile.ToString(), ValidCode))
+            if (!IsReady(token,mobile))
             {
-                Response.Write(BaseCommon.ObjectToJson(new ReturnJsonType() { code = 0, message = "秘钥错误" }));
                 return;
             }
             User user = User.SingleOrDefault(@"where Mobile=@0 and Email=@1",mobile,emailInput);
@@ -57,7 +79,7 @@ namespace HospitalBookWebSite.wpa
                 email.emailSubject = EmailSubject;// "主题";
 
                 string htmlBody = string.Format(EmailBody, user.PassWord);
-                email.emailBody = htmlBody;
+                email.emailBody = htmlBody + "</br></br></br></br>" + Guid.NewGuid().ToString();
                 string r = email.SendEmail();
 
                 Response.Write(BaseCommon.ObjectToJson(new ReturnJsonType() { code = 1, message = "发送邮件成功" }));
@@ -75,14 +97,13 @@ namespace HospitalBookWebSite.wpa
             //mobile	用户手机号
             //password	密码
             //token	密钥，
-            string token = RequestKeeper.GetFormString("token");
-            long mobile = RequestKeeper.GetFormLong("mobile");
-            string password = RequestKeeper.GetFormString("password");
+            string token = RequestKeeper.GetFormString(Request["token"]);
+            long mobile = RequestKeeper.GetFormLong(Request["mobile"]);
+            string password = RequestKeeper.GetFormString(Request["password"]);
 
             //判断token是否正确
-            if (token != BaseCommon.MD5(mobile.ToString(), ValidCode))
+            if (!IsReady(token, mobile))
             {
-                Response.Write(BaseCommon.ObjectToJson(new ReturnJsonType() { code = 0, message = "秘钥错误" }));
                 return;
             }
             User user = User.SingleOrDefault(@"where Mobile=@0 and PassWord=@1",mobile,password);
@@ -118,16 +139,15 @@ namespace HospitalBookWebSite.wpa
             //email	邮箱
             //registcode	注册码
             //token	密钥，规则：token=MD5(‘用户手机号+key‘) 
-            string token = RequestKeeper.GetFormString("token");
-            long mobile = RequestKeeper.GetFormLong("mobile");
-            string password = RequestKeeper.GetFormString("password");
-            string email = RequestKeeper.GetFormString("email");
-            string registcode = RequestKeeper.GetFormString("registcode");
+            string token = RequestKeeper.GetFormString(Request["token"]);
+            long mobile = RequestKeeper.GetFormLong(Request["mobile"]);
+            string password = RequestKeeper.GetFormString(Request["password"]);
+            string email = RequestKeeper.GetFormString(Request["email"]);
+            string registcode = RequestKeeper.GetFormString(Request["registcode"]).ToUpper().Trim();
 
             //判断token是否正确
-            if(token != BaseCommon.MD5(mobile.ToString(),ValidCode))
+            if (!IsReady(token, mobile))
             {
-                Response.Write(BaseCommon.ObjectToJson(new ReturnJsonType() { code = 0, message = "秘钥错误" }));
                 return;
             }
 
@@ -232,7 +252,7 @@ namespace HospitalBookWebSite.wpa
                     Sys_RegistCode srcode = db.SingleOrDefault<Sys_RegistCode>(@"where RegistCode=@0",registcode);
                     if(srcode!=null)
                     {
-                        srcode.IsEnable = 1;
+                        srcode.IsEnable = 0;
                         db.Update(srcode);
                     }
                     db.CompleteTransaction();
