@@ -182,12 +182,26 @@ namespace HospitalBookWebSite.Home
                         nodeUnitList[unitNum].Attributes["parentid"].Value = nodeUnitList[unitNum].ParentNode.Attributes["id"].Value;
                         nodeUnitList[unitNum].ChildNodes[0].Attributes["parentid"].Value = nodeUnitList[unitNum].Attributes["id"].Value;
                     }
-                    this.txtBookXML2.Text = xmlDoc.OuterXml;
-                    if (nodeUnitList.Count > 0)
+                    //$point$$content$
+                    string xmlCheck = xmlDoc.OuterXml.Replace("&#xD;&#xA;","");
+                    if(xmlCheck.IndexOf("$point$")>-1 )
                     {
-                        this.Label1.Text = "总共有" + nodeUnitList.Count.ToString() + "单元";
-                        this.btnImportDB.Enabled = true;
+                        this.txtBookXML2.Text = xmlCheck.Substring(xmlCheck.IndexOf("$point$"));
+                        this.Label1.Text = "存在未格式化的$point$节点";
+                    }else if( xmlCheck.IndexOf("$content$")>-1)
+                    {
+                        this.txtBookXML2.Text = xmlCheck.Substring(xmlCheck.IndexOf("$content$"));
+                        this.Label1.Text = "存在未格式化的$content$节点";
+                    }else
+                    {
+                        this.txtBookXML2.Text = xmlCheck;
+                        if (nodeUnitList.Count > 0)
+                        {
+                            this.Label1.Text = "总共有" + nodeUnitList.Count.ToString() + "单元";
+                            this.btnImportDB.Enabled = true;
+                        }
                     }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -315,13 +329,14 @@ namespace HospitalBookWebSite.Home
             List<Sys_Point> listPoint =new List<Sys_Point>();
             List<Sys_Module> listModule = GetList(strXML, listPoint);
 
+            string strSql = "";
             //用事务处理 把xml导入数据库
             try
             {
                 var db = CoreDB.GetInstance();
                 using (var scope = db.GetTransaction())
                 {
-                    string strSql = "SET IDENTITY_INSERT Sys_Module ON";
+                    strSql = "SET IDENTITY_INSERT Sys_Module ON";
                     db.Execute(strSql);
                     for (int sectionNum = 0; sectionNum < listModule.Count; sectionNum++)
                     {
@@ -354,7 +369,7 @@ namespace HospitalBookWebSite.Home
                 this.txtResult.Text = "导入成功";
             }catch(Exception ex)
             {
-                this.txtResult.Text = ex.Message + ex.Source + ex.StackTrace;
+                this.txtResult.Text = strSql+"\r\n"+ex.Message + ex.Source + ex.StackTrace;
             }
 
             
@@ -508,7 +523,7 @@ namespace HospitalBookWebSite.Home
                             //循环采分点
                             for (int contentNum = 0; contentNum < arrPoint.Length; contentNum++)
                             {
-                                sbPoint.AppendFormat(@"{0}", arrPoint[contentNum]+"\r\n");
+                                sbPoint.AppendFormat(@"<br/>{0}", arrPoint[contentNum]+"\r\n");
                             }
                             sbPoint.Append("]]></point>");
                             sbUnit.Append(sbPoint.ToString());
