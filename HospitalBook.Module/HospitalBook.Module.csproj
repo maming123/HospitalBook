@@ -82,13 +82,13 @@
     <Compile Include="Common\Utils\CookiesHelper.cs" />
     <Compile Include="Common\Utils\ExceptionType.cs" />
     <Compile Include="Common\Utils\ExportDataCommon.cs" />
-    <Compile Include="Common\Utils\MD5.cs" />
     <Compile Include="Common\Utils\MessageBox.cs" />
     <Compile Include="Common\Utils\PageList.cs" />
     <Compile Include="Common\Utils\RequestKeeper.cs" />
     <Compile Include="Common\Utils\ReturnJsonType.cs" />
     <Compile Include="Common\Utils\TypeConvert.cs" />
     <Compile Include="Common\Utils\UnitCommon.cs" />
+    <Compile Include="RegistCodeBusiness.cs" />
     <Compile Include="Sys\SystemModules\Module.cs" />
     <Compile Include="Sys\SystemModules\ModuleDAO.cs" />
     <Compile Include="Sys\SystemModules\ModuleDAOFactory.cs" />

@@ -8,6 +8,7 @@ namespace Module.Utils
     public class ReturnJsonType
     {
         public int code { get; set; }
+        public string message { get; set; }
     }
 
     public class ReturnJsonType<T>
@@ -16,4 +17,5 @@ namespace Module.Utils
 
         public T m { get; set; }
     }
+
 }

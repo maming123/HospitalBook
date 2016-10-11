@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Caching;
@@ -252,6 +253,45 @@ namespace Module.Utils
         public static string TimeParse(object timeStr, string inFormater, string outFormater)
         {
             return DateTime.ParseExact(timeStr.ToString(), inFormater, System.Globalization.CultureInfo.CurrentCulture).ToString(outFormater);
+        }
+
+        /// <summary>
+        /// MD5 混淆加密
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string MD5(string input, string key)
+        {
+            //key = 'bab8af935901d5b86ccb1d27c4985c32'; 
+            //Tokentoken=MD5+key MD5 32key 
+            //Md5(13822332274+bab8af935901d5b86ccb1d27c4985c32)  加密后字符串为 ff5f2db01bada64fdf619139518f6d87
+            //string key = "bab8af935901d5b86ccb1d27c4985c32";
+
+            byte[] result = Encoding.UTF8.GetBytes(input + "+" + key);
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] output = md5.ComputeHash(result);
+            string r = BitConverter.ToString(output).Replace("-", "").ToLower();
+            return r;
+        }
+
+        /// <summary>
+        /// MD5 混淆
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string MD5(string str)
+        {
+            System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] inBytes = System.Text.Encoding.UTF8.GetBytes(str);
+            byte[] outBytes = md5.ComputeHash(inBytes);
+            string outString = "";
+            for (int i = 0; i < outBytes.Length; i++)
+            {
+                outString += outBytes[i].ToString("x2");
+            }
+            return outString;
         }
     }
 }
