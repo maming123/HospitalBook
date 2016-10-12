@@ -98,6 +98,7 @@
     <Compile Include="Sys\SystemUsers\GroupDAOFactory.cs" />
     <Compile Include="Sys\SystemUsers\GroupDAOImplSQLServer.cs" />
     <Compile Include="Sys\SystemUsers\UserRight.cs" />
+    <Compile Include="UserBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Common\Models\Generated\Database.tt">

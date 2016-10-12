@@ -4,7 +4,7 @@
 <HTML>
 	<HEAD>
 		<title>选择所属父模块</title>
-          <link href="/css/sysmodule.css" rel="stylesheet" />
+         <link href="../../../css/sysmodule.css" rel="stylesheet" />
        
 
 		<script language="javascript" type="text/javascript">

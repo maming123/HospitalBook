@@ -10,6 +10,6 @@
 namespace HospitalBookWebSite.Home {
     
     
-    public partial class UserManage {
+    public partial class UserRegistLogManage {
     }
 }

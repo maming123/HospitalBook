@@ -3,7 +3,7 @@
 <html>
 <head runat="server">
     <title>系统模块列表</title>
-    <link href="/css/sysmodule.css" rel="stylesheet" />
+    <link href="../../../css/sysmodule.css" rel="stylesheet" />
    
     <script language="javascript">
         function setModuleOrder(moduleID){

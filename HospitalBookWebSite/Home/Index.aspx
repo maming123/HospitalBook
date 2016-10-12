@@ -61,7 +61,9 @@
                         <li><a href="javascript:void(0)" onclick="addTab('书籍管理','SystemModule/Sys/Modules/modulelist.aspx')">书籍管理</a></li>
                         <li><a href="javascript:void(0)" onclick="addTab('导入导出管理','ImportBook.aspx')">导入导出管理</a></li>
                         <li><a href="javascript:void(0)" onclick="addTab('注册用户管理','UserManage.aspx')">注册用户管理</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('注册用户日志管理','UserRegistLogManage.aspx')">注册用户日志管理</a></li>
                         <li><a href="javascript:void(0)" onclick="addTab('书籍注册码管理','RegistCodeManage.aspx')">书籍注册码管理</a></li>
+                    
                     </ul>
                 </div>
                 <div title="系统管理" data-options="collapsed:false,collapsible:false" style="padding: 10px;">

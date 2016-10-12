@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManage.aspx.cs" Inherits="HospitalBookWebSite.Home.UserManage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserRegistLogManage.aspx.cs" Inherits="HospitalBookWebSite.Home.UserRegistLogManage" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,7 @@
     <script type="text/javascript" src="/js/jquery.utils.js"></script>
     <script type="text/javascript" src="/js/admin.js"></script>
     <script type="text/javascript" src="/js/jsonlint.js"></script>
-    <title>用户管理</title>
+    <title>注册用户日志管理</title>
     <script type="text/javascript">
         var pageCount = 0;
         $(document).ready(function () {
@@ -25,7 +25,7 @@
             $.ajax({
                 type: "POST",
                 url: "handler/PageHandler.ashx",
-                data: { Action: "GetUserList", mobile: mobile, PageIndex: pageIndex, r: Math.random() },
+                data: { Action: "GetUserLogList", mobile: mobile, PageIndex: pageIndex, r: Math.random() },
                 dataType: "json",
                 async: true,
                 success: function (result) {
@@ -133,7 +133,7 @@
         <div class="block">
             <div class="h">
                 <span class="icon-sprite icon-list"></span>
-                <h3>用户列表</h3>
+                <h3>注册用户日志列表</h3>
                 <div class="bar">
                     手机号：<input id="txtmobile" type="text" />
                     <input id="btnQuery" type="button" value="查询" onclick="GetList(1);" />

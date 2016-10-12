@@ -8,7 +8,7 @@ using HospitalBook.WebSite.Home;
 
 namespace HospitalBookWebSite.Home
 {
-    public partial class UserManage : ManagePageBase
+    public partial class UserRegistLogManage : ManagePageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

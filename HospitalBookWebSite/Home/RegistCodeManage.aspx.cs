@@ -173,5 +173,54 @@ namespace HospitalBookWebSite.Home
                 sqlCon.Close();
             }
         }
+
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            FillData("", "2");
+        }
+
+        protected void btnQureyCodeStatus_Click(object sender, EventArgs e)
+        {
+            FillData(this.txtCode.Text.Trim().ToUpper(), "1");
+        }
+
+        private void FillData(string code,string queryType)
+        {
+            string strSql = @"select top 100 * from Sys_RegistCode where 1=1 ";
+            if (queryType == "1")
+            {
+                if (!string.IsNullOrEmpty(code))
+                {
+                    strSql += string.Format(@" and RegistCode='{0}'", code);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if(queryType=="2")
+            {
+                strSql += string.Format(@" and IsEnable=1");
+            }
+            strSql += " order by Id asc";
+            List<Sys_RegistCode> list = Sys_RegistCode.Query(strSql).ToList();
+            this.gvList.DataSource = list;
+            this.gvList.DataBind();
+        }
+
+        protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "ContentUpdate")
+            {
+               int editId = Convert.ToInt32(e.CommandArgument);
+                Sys_RegistCode srcode =Sys_RegistCode.SingleOrDefault((object)editId);
+                srcode.IsEnable = 0;
+                int r= srcode.Update();
+                if(r>0)
+                {
+                    MessageBox.Show(Page, "已更新，请重新查询");
+                }
+            }
+        }
     }
 }

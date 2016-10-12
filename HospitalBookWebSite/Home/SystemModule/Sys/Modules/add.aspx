@@ -4,7 +4,7 @@
 <HTML>
 	<HEAD>
 		<title>添加新模块</title>
-         <link href="/css/sysmodule.css" rel="stylesheet" />
+        <link href="../../../css/sysmodule.css" rel="stylesheet" />
         <script src="/js/jquery-1.11.1.min.js" type="text/javascript"></script>
         <script src="/js/layer/layer.js" type="text/javascript"></script>
         <script src="/js/common.js" type="text/javascript"></script>

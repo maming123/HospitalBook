@@ -57,13 +57,60 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\admin.content.css" />
-    <Content Include="css\admin.global.css" />
     <Content Include="Global.asax" />
+    <Content Include="Home\css\admin.content.css" />
+    <Content Include="Home\css\admin.global.css" />
+    <Content Include="Home\css\sysmodule.css" />
     <Content Include="Home\EditPoint.aspx" />
+    <Content Include="Home\images\block-corner.png" />
+    <Content Include="Home\images\block-h.gif" />
+    <Content Include="Home\images\box-title.gif" />
+    <Content Include="Home\images\button-green-lit.png" />
+    <Content Include="Home\images\button-green.png" />
+    <Content Include="Home\images\button-white.gif" />
+    <Content Include="Home\images\close.gif" />
+    <Content Include="Home\images\data-table-th.gif" />
+    <Content Include="Home\images\icon-mail.gif" />
+    <Content Include="Home\images\icon-phone.gif" />
+    <Content Include="Home\images\icons.png" />
+    <Content Include="Home\images\index-footer.gif" />
+    <Content Include="Home\images\index-header.gif" />
+    <Content Include="Home\images\index-table-bottom-center.gif" />
+    <Content Include="Home\images\index-table-bottom-left.gif" />
+    <Content Include="Home\images\index-table-bottom-right.gif" />
+    <Content Include="Home\images\index-table-middle-left.gif" />
+    <Content Include="Home\images\index-table-middle-right.gif" />
+    <Content Include="Home\images\index-table-top-center.gif" />
+    <Content Include="Home\images\index-table-top-left.gif" />
+    <Content Include="Home\images\index-table-top-right.gif" />
+    <Content Include="Home\images\index-table-welcome-01.gif" />
+    <Content Include="Home\images\index-table-welcome-02.gif" />
+    <Content Include="Home\images\index-table-welcome-03.gif" />
+    <Content Include="Home\images\index_menu_bg.gif" />
+    <Content Include="Home\images\index_menu_bottom.gif" />
+    <Content Include="Home\images\index_menu_line.gif" />
+    <Content Include="Home\images\index_menu_off.gif" />
+    <Content Include="Home\images\index_menu_on.gif" />
+    <Content Include="Home\images\index_menu_tit.gif" />
+    <Content Include="Home\images\loading.gif" />
+    <Content Include="Home\images\loading_16x16.gif" />
+    <Content Include="Home\images\lock.gif" />
+    <Content Include="Home\images\login-bottom.gif" />
+    <Content Include="Home\images\login-top.gif" />
+    <Content Include="Home\images\login-welcome.gif" />
+    <Content Include="Home\images\login_middle_1.gif" />
+    <Content Include="Home\images\login_middle_3.gif" />
+    <Content Include="Home\images\logo.gif" />
+    <Content Include="Home\images\out.gif" />
+    <Content Include="Home\images\title.gif" />
+    <Content Include="Home\images\tree\server.png" />
+    <Content Include="Home\images\tree\server_group_close.png" />
+    <Content Include="Home\images\tree\server_group_open.png" />
+    <Content Include="Home\images\ts.gif" />
     <Content Include="Home\Login\EditPassword.aspx" />
     <Content Include="Home\Login\LoginOut.aspx" />
     <Content Include="Home\RegistCodeManage.aspx" />
+    <Content Include="Home\UserRegistLogManage.aspx" />
     <Content Include="Home\UserManage.aspx" />
     <Content Include="images\Query\00000001_r1_c1.gif" />
     <Content Include="images\Query\00000001_r1_c2.gif" />
@@ -88,11 +135,11 @@
     <Content Include="Home\Login\images\pattern_slash.gif" />
     <Content Include="Home\Login\Index.aspx" />
     <Content Include="Home\Login\js\common.js" />
-    <Content Include="css\sysmodule.css" />
     <Content Include="Home\SystemModule\Sys\Modules\add.aspx" />
     <Content Include="Home\SystemModule\Sys\Modules\edit.aspx" />
     <Content Include="Home\SystemModule\Sys\Modules\modulelist.aspx" />
     <Content Include="Home\SystemModule\Sys\Modules\selectparentmodule.aspx" />
+    <Content Include="js\admin.js" />
     <Content Include="js\bdCount.js" />
     <Content Include="js\common.js" />
     <Content Include="js\easyui-1.4.1\changelog.txt" />
@@ -461,6 +508,9 @@
     <Compile Include="Home\EditPoint.aspx.designer.cs">
       <DependentUpon>EditPoint.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Home\handler\PageHandler.ashx.cs">
+      <DependentUpon>PageHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Home\ImportBook.aspx.cs">
       <DependentUpon>ImportBook.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -537,6 +587,13 @@
     <Compile Include="Home\SystemModule\Sys\Modules\selectparentmodule.aspx.designer.cs">
       <DependentUpon>selectparentmodule.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Home\UserRegistLogManage.aspx.cs">
+      <DependentUpon>UserRegistLogManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\UserRegistLogManage.aspx.designer.cs">
+      <DependentUpon>UserRegistLogManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home\UserManage.aspx.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -553,6 +610,8 @@
     <Content Include="Home\Login\CodePngComplex.ashx" />
     <Content Include="js\kindeditor-4.1.10\asp.net\file_manager_json.ashx" />
     <Content Include="js\kindeditor-4.1.10\asp.net\upload_json.ashx" />
+    <Content Include="Home\handler\PageHandler.ashx" />
+    <Content Include="Home\images\icons.psd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
