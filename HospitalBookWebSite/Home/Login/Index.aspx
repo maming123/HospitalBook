@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>活动登录</title>
+    <title>后台登录</title>
     <link href="css/default.css" media="screen" rel="stylesheet" type="text/css">
     <link href="css/register.css" media="screen" rel="stylesheet" type="text/css">
 

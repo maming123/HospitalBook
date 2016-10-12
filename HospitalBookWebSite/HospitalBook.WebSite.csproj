@@ -612,6 +612,7 @@
     <Content Include="js\kindeditor-4.1.10\asp.net\upload_json.ashx" />
     <Content Include="Home\handler\PageHandler.ashx" />
     <Content Include="Home\images\icons.psd" />
+    <None Include="Properties\PublishProfiles\hospitalbook.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
