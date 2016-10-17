@@ -288,6 +288,8 @@
     <Content Include="js\jquery-1.11.0.min.js" />
     <Content Include="js\jquery-1.11.1.min.js" />
     <Content Include="js\jquery-1.9.1.min.js" />
+    <Content Include="js\jquery.utils.js" />
+    <Content Include="js\jsonlint.js" />
     <Content Include="js\kindeditor-4.1.10\asp.net\bin\LitJSON.dll" />
     <Content Include="js\kindeditor-4.1.10\asp.net\demo.aspx" />
     <Content Include="js\kindeditor-4.1.10\asp.net\README.txt" />
