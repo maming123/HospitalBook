@@ -202,7 +202,7 @@ namespace HospitalBookWebSite.Home
             {
                 strSql += string.Format(@" and IsEnable=1");
             }
-            strSql += " order by Id asc";
+            strSql += " order by Id desc";
             List<Sys_RegistCode> list = Sys_RegistCode.Query(strSql).ToList();
             this.gvList.DataSource = list;
             this.gvList.DataBind();

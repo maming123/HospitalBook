@@ -21,6 +21,49 @@ namespace HospitalBookWebSite.wpa
             dictAction.Add("regist", regist);
             dictAction.Add("login", login);
             dictAction.Add("getpassword", getpassword);
+            dictAction.Add("submitscore", submitscore);
+            dictAction.Add("showscore", showscore);
+        }
+
+        /// <summary>
+        /// 获取得分
+        /// </summary>
+        private void showscore()
+        {
+            string type = RequestKeeper.GetFormString(Request["type"]);
+            string where ="";
+            if(type.ToLower()=="day")
+            {
+                where =" where ShortDate = "+DateTime.Now.ToString("yyyyMMdd");
+            }
+
+            List<UserScore> list = UserScore.Query("SELECT  TOP 100 UserName ,                            SUM(Score) AS 'Score'    FROM    UserScore                    "+where+"  GROUP BY UserName   ORDER BY Score DESC ").ToList();
+
+                Response.Write(BaseCommon.ObjectToJson(list));
+           
+        }
+
+        /// <summary>
+        /// 添加得分
+        /// </summary>
+        private void submitscore()
+        {
+            int score = RequestKeeper.GetFormInt(Request["score"]);
+            string username = RequestKeeper.GetFormString(Request["name"]);
+            UserScore us = new UserScore() { 
+                 Score=score
+                 , UserName= username
+                 , ShortDate=Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd"))
+                 , CreateDateTime=DateTime.Now
+            };
+            object r =us.Insert();
+            if(Convert.ToInt32(r)>0)
+            {
+                Response.Write( BaseCommon.ObjectToJson(new ReturnJsonType() { code = 1, message = "成功" }));
+            }else
+            {
+                Response.Write(BaseCommon.ObjectToJson(new ReturnJsonType() { code = 0, message = "失败" }));
+            }
         }
 
         /// <summary>
@@ -100,6 +143,7 @@ namespace HospitalBookWebSite.wpa
             string token = RequestKeeper.GetFormString(Request["token"]);
             long mobile = RequestKeeper.GetFormLong(Request["mobile"]);
             string password = RequestKeeper.GetFormString(Request["password"]);
+            int  bookid = RequestKeeper.GetFormInt(Request["bookid"]);
 
             //判断token是否正确
             if (!IsReady(token, mobile))
@@ -108,7 +152,14 @@ namespace HospitalBookWebSite.wpa
             }
             User user = User.SingleOrDefault(@"where Mobile=@0 and PassWord=@1",mobile,password);
             if(user!=null)
-            {
+            { 
+                //记录登录日志（包括登录时间、书籍ID、手机号）
+                UserLoginLog userLoginLog = new UserLoginLog() {
+                    BookId = bookid
+                    , CreateDatetime=DateTime.Now
+                    , Mobile=mobile
+                };
+                userLoginLog.Insert();
                 Response.Write(BaseCommon.ObjectToJson(new ReturnJsonType() { code = 1, message = "成功登录" }));
                 return;
             }else

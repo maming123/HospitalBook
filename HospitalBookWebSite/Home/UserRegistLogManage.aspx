@@ -16,7 +16,7 @@
         var pageCount = 0;
         $(document).ready(function () {
             GetList(1);
-            return false;
+           
         });
         //获取中奖纪录
         function GetList(pageIndex) {

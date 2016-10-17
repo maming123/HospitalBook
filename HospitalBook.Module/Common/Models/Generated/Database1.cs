@@ -182,116 +182,6 @@ namespace Module.Models
 	}
 
     
-	[TableName("Sys_Module")]
-
-
-	[PrimaryKey("MODULE_ID")]
-
-
-
-	[ExplicitColumns]
-    public partial class Sys_Module : CoreDB.Record<Sys_Module>  
-    {
-
-
-
-		[Column] public int MODULE_ID { get; set; }
-
-
-
-
-
-		[Column] public string MODULE_NAME { get; set; }
-
-
-
-
-
-		[Column] public int? PARENT_MODULE_ID { get; set; }
-
-
-
-
-
-		[Column] public byte IS_DISPLAY { get; set; }
-
-
-
-
-
-		[Column] public short? ORDER_ID { get; set; }
-
-
-
-
-
-		[Column] public short? Banner_Button_Width { get; set; }
-
-
-
-
-
-		[Column] public string Link_Path { get; set; }
-
-
-
-
-
-		[Column] public byte Link_Type { get; set; }
-
-
-
-
-
-		[Column] public string Link_Target { get; set; }
-
-
-
-
-
-		[Column] public byte Create_Table { get; set; }
-
-
-
-
-
-		[Column] public int? Template_ID { get; set; }
-
-
-
-
-
-		[Column] public string Description { get; set; }
-
-
-
-
-
-		[Column] public string Business_Table { get; set; }
-
-
-
-
-
-		[Column] public bool Is_Sys_File { get; set; }
-
-
-
-
-
-		[Column] public bool Is_Original_Data { get; set; }
-
-
-
-
-
-		[Column] public string Creator_Area_Code { get; set; }
-
-
-
-	}
-
-    
 	[TableName("Sys_AdminUser")]
 
 
@@ -448,50 +338,6 @@ namespace Module.Models
 	}
 
     
-	[TableName("Sys_RegistCode")]
-
-
-	[PrimaryKey("Id")]
-
-
-
-	[ExplicitColumns]
-    public partial class Sys_RegistCode : CoreDB.Record<Sys_RegistCode>  
-    {
-
-
-
-		[Column] public int Id { get; set; }
-
-
-
-
-
-		[Column] public int BookId { get; set; }
-
-
-
-
-
-		[Column] public string RegistCode { get; set; }
-
-
-
-
-
-		[Column] public int IsEnable { get; set; }
-
-
-
-
-
-		[Column] public DateTime CreateDateTime { get; set; }
-
-
-
-	}
-
-    
 	[TableName("Log")]
 
 
@@ -536,6 +382,242 @@ namespace Module.Models
 
 
 		[Column] public string Module_Name { get; set; }
+
+
+
+	}
+
+    
+	[TableName("Sys_RegistCode")]
+
+
+	[PrimaryKey("Id")]
+
+
+
+	[ExplicitColumns]
+    public partial class Sys_RegistCode : CoreDB.Record<Sys_RegistCode>  
+    {
+
+
+
+		[Column] public int Id { get; set; }
+
+
+
+
+
+		[Column] public int BookId { get; set; }
+
+
+
+
+
+		[Column] public string RegistCode { get; set; }
+
+
+
+
+
+		[Column] public int IsEnable { get; set; }
+
+
+
+
+
+		[Column] public DateTime CreateDateTime { get; set; }
+
+
+
+	}
+
+    
+	[TableName("Sys_Module")]
+
+
+	[PrimaryKey("MODULE_ID")]
+
+
+
+	[ExplicitColumns]
+    public partial class Sys_Module : CoreDB.Record<Sys_Module>  
+    {
+
+
+
+		[Column] public int MODULE_ID { get; set; }
+
+
+
+
+
+		[Column] public string MODULE_NAME { get; set; }
+
+
+
+
+
+		[Column] public int? PARENT_MODULE_ID { get; set; }
+
+
+
+
+
+		[Column] public byte IS_DISPLAY { get; set; }
+
+
+
+
+
+		[Column] public short? ORDER_ID { get; set; }
+
+
+
+
+
+		[Column] public short? Banner_Button_Width { get; set; }
+
+
+
+
+
+		[Column] public string Link_Path { get; set; }
+
+
+
+
+
+		[Column] public byte Link_Type { get; set; }
+
+
+
+
+
+		[Column] public string Link_Target { get; set; }
+
+
+
+
+
+		[Column] public byte Create_Table { get; set; }
+
+
+
+
+
+		[Column] public int? Template_ID { get; set; }
+
+
+
+
+
+		[Column] public string Description { get; set; }
+
+
+
+
+
+		[Column] public string Business_Table { get; set; }
+
+
+
+
+
+		[Column] public bool Is_Sys_File { get; set; }
+
+
+
+
+
+		[Column] public bool Is_Original_Data { get; set; }
+
+
+
+
+
+		[Column] public string Creator_Area_Code { get; set; }
+
+
+
+	}
+
+    
+	[TableName("UserLoginLog")]
+
+
+	[PrimaryKey("Id")]
+
+
+
+	[ExplicitColumns]
+    public partial class UserLoginLog : CoreDB.Record<UserLoginLog>  
+    {
+
+
+
+		[Column] public int Id { get; set; }
+
+
+
+
+
+		[Column] public long Mobile { get; set; }
+
+
+
+
+
+		[Column] public int BookId { get; set; }
+
+
+
+
+
+		[Column] public DateTime CreateDatetime { get; set; }
+
+
+
+	}
+
+    
+	[TableName("UserScore")]
+
+
+	[PrimaryKey("Id")]
+
+
+
+	[ExplicitColumns]
+    public partial class UserScore : CoreDB.Record<UserScore>  
+    {
+
+
+
+		[Column] public int Id { get; set; }
+
+
+
+
+
+		[Column] public string UserName { get; set; }
+
+
+
+
+
+		[Column] public int Score { get; set; }
+
+
+
+
+
+		[Column] public int ShortDate { get; set; }
+
+
+
+
+
+		[Column] public DateTime CreateDateTime { get; set; }
 
 
 
