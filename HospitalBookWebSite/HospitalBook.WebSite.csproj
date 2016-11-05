@@ -107,6 +107,10 @@
     <Content Include="Home\images\tree\server_group_close.png" />
     <Content Include="Home\images\tree\server_group_open.png" />
     <Content Include="Home\images\ts.gif" />
+    <Content Include="Home\ImportBook1Level.aspx" />
+    <Content Include="Home\ImportBook2Level.aspx" />
+    <Content Include="Home\ImportBook4Level.aspx" />
+    <Content Include="Home\ImportBook3Level.aspx" />
     <Content Include="Home\Login\EditPassword.aspx" />
     <Content Include="Home\Login\LoginOut.aspx" />
     <Content Include="Home\RegistCodeManage.aspx" />
@@ -512,6 +516,34 @@
     </Compile>
     <Compile Include="Home\handler\PageHandler.ashx.cs">
       <DependentUpon>PageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\ImportBook1Level.aspx.cs">
+      <DependentUpon>ImportBook1Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\ImportBook1Level.aspx.designer.cs">
+      <DependentUpon>ImportBook1Level.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\ImportBook2Level.aspx.cs">
+      <DependentUpon>ImportBook2Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\ImportBook2Level.aspx.designer.cs">
+      <DependentUpon>ImportBook2Level.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\ImportBook4Level.aspx.cs">
+      <DependentUpon>ImportBook4Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\ImportBook4Level.aspx.designer.cs">
+      <DependentUpon>ImportBook4Level.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\ImportBook3Level.aspx.cs">
+      <DependentUpon>ImportBook3Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\ImportBook3Level.aspx.designer.cs">
+      <DependentUpon>ImportBook3Level.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home\ImportBook.aspx.cs">
       <DependentUpon>ImportBook.aspx</DependentUpon>
