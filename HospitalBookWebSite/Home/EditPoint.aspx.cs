@@ -27,9 +27,16 @@ namespace HospitalBookWebSite.Home
         {
             Sys_Module unit = Sys_Module.Single((object)moduleId);
             Sys_Point point = Sys_Point.FirstOrDefault(@"where ModulelId=@0", moduleId);
-            lblPointId.Text = point.Id.ToString();
-            lblContent.Text = unit.MODULE_NAME;
-            this.txtContent.Value = point.Content;
+            if (point != null && point.Id > 0)
+            {
+                lblPointId.Text = point.Id.ToString();
+                lblContent.Text = unit.MODULE_NAME;
+                this.txtContent.Value = point.Content;
+            }else
+            {
+                Response.Write("没有内容");
+                Response.End();
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

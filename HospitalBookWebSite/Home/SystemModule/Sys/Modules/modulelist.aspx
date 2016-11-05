@@ -21,7 +21,7 @@
 							<TR>
 								<TD><A href="Add.aspx" target="ifrmModuleInfo">添加新模块</A></TD>
 								<TD>
-									<asp:LinkButton id="linkBtnDelete" runat="server" onclick="linkBtnDelete_Click">删除选中的模块</asp:LinkButton>
+									<asp:LinkButton id="linkBtnDelete" Visible="false" runat="server" onclick="linkBtnDelete_Click">删除选中的模块</asp:LinkButton>
 								</TD>
 							</TR>
 						</TABLE>

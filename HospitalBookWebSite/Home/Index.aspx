@@ -63,6 +63,7 @@
                         <li><a href="javascript:void(0)" onclick="addTab('导入导出管理[二级目录]','ImportBook2Level.aspx')">导入导出管理[二级目录]</a></li>
                         <li><a href="javascript:void(0)" onclick="addTab('导入导出管理[三级目录]','ImportBook3Level.aspx')">导入导出管理[三级目录]</a></li>
                         <li><a href="javascript:void(0)" onclick="addTab('导入导出管理[四级目录]','ImportBook4Level.aspx')">导入导出管理[四级目录]</a></li>
+                        <li><a href="javascript:void(0)" onclick="addTab('导入导出管理[五级目录]','ImportBook5Level.aspx')">导入导出管理[五级目录]</a></li>
                         <li><a href="javascript:void(0)" onclick="addTab('注册用户管理','UserManage.aspx')">注册用户管理</a></li>
                         <li><a href="javascript:void(0)" onclick="addTab('注册用户日志管理','UserRegistLogManage.aspx')">注册用户日志管理</a></li>
                         <li><a href="javascript:void(0)" onclick="addTab('书籍注册码管理','RegistCodeManage.aspx')">书籍注册码管理</a></li>

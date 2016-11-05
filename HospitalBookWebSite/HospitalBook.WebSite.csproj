@@ -109,6 +109,7 @@
     <Content Include="Home\images\ts.gif" />
     <Content Include="Home\ImportBook1Level.aspx" />
     <Content Include="Home\ImportBook2Level.aspx" />
+    <Content Include="Home\ImportBook5Level.aspx" />
     <Content Include="Home\ImportBook4Level.aspx" />
     <Content Include="Home\ImportBook3Level.aspx" />
     <Content Include="Home\Login\EditPassword.aspx" />
@@ -530,6 +531,13 @@
     </Compile>
     <Compile Include="Home\ImportBook2Level.aspx.designer.cs">
       <DependentUpon>ImportBook2Level.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\ImportBook5Level.aspx.cs">
+      <DependentUpon>ImportBook5Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\ImportBook5Level.aspx.designer.cs">
+      <DependentUpon>ImportBook5Level.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home\ImportBook4Level.aspx.cs">
       <DependentUpon>ImportBook4Level.aspx</DependentUpon>

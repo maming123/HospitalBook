@@ -51,7 +51,7 @@
                                     <asp:TextBox ID="txtParentName" runat="server" Width="296px" ReadOnly="True" CssClass="BigInput"></asp:TextBox>
                                     <input type="button" value="浏览" class="BigButton" onclick="ShowSelectParentModule();"
                                         name="btnBrowseParent">
-                                    <asp:CheckBox ID="chkIsRootModule" runat="server" Text="当前模块为根模块"></asp:CheckBox>
+                                    <asp:CheckBox ID="chkIsRootModule" runat="server" Text="当前模块为根模块" Visible="false"></asp:CheckBox>
                                     <asp:TextBox ID="txtParentID" runat="server" Width="0px"></asp:TextBox></td>
                             </tr>
                             <%--<tr class="TableDataRow">

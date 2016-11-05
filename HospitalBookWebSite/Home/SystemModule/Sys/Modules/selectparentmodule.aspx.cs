@@ -78,7 +78,8 @@ namespace MLK.SystemModule.Sys.Modules
 
         protected void tvModules_SelectedNodeChanged(object sender, EventArgs e)
         {
-            this.ShowChildModules(this.tvModules.SelectedNode);
+            //使其不能展开目录
+            //this.ShowChildModules(this.tvModules.SelectedNode);
         }
     }
 }

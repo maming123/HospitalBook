@@ -50,7 +50,7 @@
 											name="btnBrowseParent">--%>
 										<INPUT type="button" value="浏览" class="BigButton" onclick="ShowSelectParentModule();"
 											name="btnBrowseParent">
-										<asp:CheckBox id="chkIsRootModule" runat="server" Text="当前模块为根模块"></asp:CheckBox>
+										<asp:CheckBox id="chkIsRootModule" runat="server" Text="当前模块为根模块" Visible="false"></asp:CheckBox>
 										<asp:TextBox id="txtParentID" runat="server" Width="0px"></asp:TextBox></TD>
 								</TR>
                                 
