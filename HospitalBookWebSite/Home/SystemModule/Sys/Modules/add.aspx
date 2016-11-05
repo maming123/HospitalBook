@@ -62,7 +62,7 @@
 												type="button" value="浏览">--%>&nbsp;<INPUT class="BigButton" type="button" value="无链接" onclick="document.all.txtLinkID.value='0';document.all.txtLinkName.value='';" style="display:none"></P>
 									</TD>
 								</TR>
-                                <tr class="TableDataRow">
+                               <%-- <tr class="TableDataRow">
                                     <td style="width: 61px">
                                         指向的目标</td>
                                     <td>
