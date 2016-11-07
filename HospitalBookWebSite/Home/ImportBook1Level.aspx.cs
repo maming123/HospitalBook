@@ -15,6 +15,9 @@ namespace HospitalBookWebSite.Home
 {
     public partial class ImportBook1Level :  HospitalBook.WebSite.Home.ManagePageBase
     {
+
+        private int level = 1;
+        private int parent_module_id = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!Page.IsPostBack)
@@ -28,6 +31,7 @@ namespace HospitalBookWebSite.Home
             List<Sys_Module> list = Sys_Module.Query("where parent_module_id=1").ToList();
             foreach(Sys_Module sys in list)
             {
+                if(sys.Template_ID==level)
                 this.ddlBook.Items.Add(new ListItem(sys.MODULE_NAME, sys.MODULE_ID.ToString()));
             }
         }
@@ -335,6 +339,8 @@ namespace HospitalBookWebSite.Home
                     }
                     strSql = "SET IDENTITY_INSERT Sys_Module OFF";
                     db.Execute(strSql);
+                    strSql = String.Format("UPDATE Sys_Module SET Template_ID={0} WHERE MODULE_ID={1}", level, parent_module_id);
+                    db.Execute(strSql);
                     scope.Complete();
                 }
                 this.txtResult.Text = "导入成功";
@@ -374,6 +380,7 @@ namespace HospitalBookWebSite.Home
                         ,  PARENT_MODULE_ID = Convert.ToInt32(nodeSectionList[sectionNum].Attributes["parentid"].Value)
                         , IS_DISPLAY=1
                 };
+                parent_module_id = Convert.ToInt32(sys.PARENT_MODULE_ID);
                 list.Add(sys);
                 Sys_Point point = new Sys_Point()
                 {
