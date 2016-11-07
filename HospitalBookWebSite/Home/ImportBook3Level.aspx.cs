@@ -31,8 +31,7 @@ namespace HospitalBookWebSite.Home
             List<Sys_Module> list = Sys_Module.Query("where parent_module_id=1").ToList();
             foreach(Sys_Module sys in list)
             {
-                if (sys.Template_ID == level)
-                this.ddlBook.Items.Add(new ListItem(sys.MODULE_NAME, sys.MODULE_ID.ToString()));
+                if (sys.Template_ID == level || Convert.ToInt32(sys.Template_ID) == 0) this.ddlBook.Items.Add(new ListItem(sys.MODULE_NAME, sys.MODULE_ID.ToString()));
             }
         }
 
