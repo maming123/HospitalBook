@@ -469,10 +469,11 @@ namespace HospitalBookWebSite.Home
 
             foreach(Sys_Module section in listSection)
             {
-                XmlElement sectionXe = document.CreateElement("section");
+                XmlElement sectionXe = document.CreateElement("unit");
                 sectionXe.SetAttribute("title", section.MODULE_NAME);
                 sectionXe.SetAttribute("id", section.MODULE_ID.ToString());
-                sectionXe.SetAttribute("parentid", section.PARENT_MODULE_ID.ToString()); 
+                sectionXe.SetAttribute("parentid", section.PARENT_MODULE_ID.ToString());
+                sectionXe.SetAttribute("display", section.IS_DISPLAY.ToString());
                 root.AppendChild(sectionXe);
                 List<Sys_Point> listPoint = Sys_Point.Query(@" where ModulelId=@0", section.MODULE_ID).ToList();
                 foreach (Sys_Point point in listPoint)

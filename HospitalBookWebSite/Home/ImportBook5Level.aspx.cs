@@ -679,7 +679,8 @@ namespace HospitalBookWebSite.Home
                 XmlElement sectionXe = document.CreateElement("section");
                 sectionXe.SetAttribute("title", section.MODULE_NAME);
                 sectionXe.SetAttribute("id", section.MODULE_ID.ToString());
-                sectionXe.SetAttribute("parentid", section.PARENT_MODULE_ID.ToString()); 
+                sectionXe.SetAttribute("parentid", section.PARENT_MODULE_ID.ToString());
+                sectionXe.SetAttribute("display", section.IS_DISPLAY.ToString());
                 root.AppendChild(sectionXe);
                 List<Sys_Module> listPart = Sys_Module.Query(@" where parent_module_id=@0", section.MODULE_ID).ToList();
                 foreach(Sys_Module part in listPart)
@@ -693,10 +694,11 @@ namespace HospitalBookWebSite.Home
                     List<Sys_Module> listUnit = Sys_Module.Query(@" where parent_module_id=@0", part.MODULE_ID).ToList();
                     foreach(Sys_Module unit in listUnit)
                     {
-                        XmlElement unitXe = document.CreateElement("unit");
+                        XmlElement unitXe = document.CreateElement("sheet");
                         unitXe.SetAttribute("title", unit.MODULE_NAME);
                         unitXe.SetAttribute("id", unit.MODULE_ID.ToString());
                         unitXe.SetAttribute("parentid", unit.PARENT_MODULE_ID.ToString());
+                        unitXe.SetAttribute("display", unit.IS_DISPLAY.ToString());
                         partXe.AppendChild(unitXe);
                         List<Sys_Module> listNode = Sys_Module.Query(@" where parent_module_id=@0", unit.MODULE_ID).ToList();
                         
@@ -706,15 +708,17 @@ namespace HospitalBookWebSite.Home
                             nodeXe.SetAttribute("title", node.MODULE_NAME);
                             nodeXe.SetAttribute("id", node.MODULE_ID.ToString());
                             nodeXe.SetAttribute("parentid", node.PARENT_MODULE_ID.ToString());
+                            nodeXe.SetAttribute("display", node.IS_DISPLAY.ToString());
                             unitXe.AppendChild(nodeXe);
 
                             List<Sys_Module> listNode5Level = Sys_Module.Query(@" where parent_module_id=@0", node.MODULE_ID).ToList();
                             foreach (Sys_Module node5Level in listNode5Level)
                             {
-                                XmlElement node5LevelXe = document.CreateElement("node");
+                                XmlElement node5LevelXe = document.CreateElement("unit");
                                 node5LevelXe.SetAttribute("title", node5Level.MODULE_NAME);
                                 node5LevelXe.SetAttribute("id", node5Level.MODULE_ID.ToString());
                                 node5LevelXe.SetAttribute("parentid", node5Level.PARENT_MODULE_ID.ToString());
+                                node5LevelXe.SetAttribute("display", node5Level.IS_DISPLAY.ToString());
                                 nodeXe.AppendChild(node5LevelXe);
 
                                 List<Sys_Point> listPoint = Sys_Point.Query(@" where ModulelId=@0", node5Level.MODULE_ID).ToList();
