@@ -38,6 +38,7 @@
         {
             width: 199px;
         }
+        
     </style>
 </head>
 <body>
@@ -47,6 +48,7 @@
         <div class="header">
             <div class="placeholder">
                 <div class="main">
+                    <image src="images/logo.png"></image>
                 </div>
             </div>
         </div>
@@ -132,8 +134,7 @@
             </div>
         </div>
         <div class="footer">
-            <br />
-            <br />
+             <div style="color:#FFFFFF ; text-align:center">地址：北京市东城区东单三条9号 网址：<a style="color:#FFFFFF" href="http://www.pumcp.com" target="_blank">http://www.pumcp.com</a>  互联网出版许可证 新出网证 （京）字282号 京ICP备 05029104号-4 Copyright©2013 中国协和医科大学出版社 版权所有！</div>
         </div>
 
         <input type="hidden" id="returnUrl" name="returnUrl" value="" />
