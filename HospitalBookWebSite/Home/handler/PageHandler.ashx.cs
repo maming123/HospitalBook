@@ -42,7 +42,7 @@ namespace HospitalBookWebSite.Home.handler
             int bookId = RequestKeeper.GetFormInt(Request["bookId"]);
             long mobile = RequestKeeper.GetFormLong(Request["mobile"]);
             int pageIndex = RequestKeeper.GetFormInt(Request["PageIndex"]);
-            int pageSize = 20;// RequestKeeper.GetFormInt(Request["PageSize"]);
+            int pageSize = 12;// RequestKeeper.GetFormInt(Request["PageSize"]);
 
             PageList<List<User>> pList = UserBusiness.GetUserList(mobile,bookId, pageIndex, pageSize);
 
@@ -58,7 +58,7 @@ namespace HospitalBookWebSite.Home.handler
             long mobile = RequestKeeper.GetFormLong(Request["mobile"]);
             string registcode = RequestKeeper.GetFormString(Request["registcode"]);
             int pageIndex = RequestKeeper.GetFormInt(Request["PageIndex"]);
-            int pageSize = 20;// RequestKeeper.GetFormInt(Request["PageSize"]);
+            int pageSize = 12;// RequestKeeper.GetFormInt(Request["PageSize"]);
 
             PageList<List<UserRegistLog>> pList = UserBusiness.GetUserLogList(mobile,registcode, pageIndex, pageSize);
 
