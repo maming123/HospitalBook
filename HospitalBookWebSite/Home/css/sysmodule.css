@@ -37,11 +37,11 @@ A:hover
 	color:#ff0000;text-decoration:underline}
 	
 INPUT.BigButton {
-	BORDER-RIGHT: #104a7b 1px solid; BORDER-TOP: #afc4d5 1px solid; FONT-SIZE: 9pt; BACKGROUND: #d6e7ef; BORDER-LEFT: #afc4d5 1px solid; CURSOR: hand; COLOR: #000066; BORDER-BOTTOM: #104a7b 1px solid; HEIGHT: 20px; TEXT-DECORATION: none
+	  FONT-SIZE: 9pt; BACKGROUND: #d6e7ef;  CURSOR: hand; COLOR: #000066;  HEIGHT: 20px; TEXT-DECORATION: none;width:50px; border:#333 1px solid;
 }
 
 INPUT.BigInput {
-	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BACKGROUND: #d6e7ef; BORDER-LEFT: black 1px solid; COLOR: #000066; BORDER-BOTTOM: black 1px solid; HEIGHT: 19px
+	border-width: 0px;  BACKGROUND: #d6e7ef;  COLOR: #000066;  HEIGHT: 19px
 }
 
 INPUT.ReadOnly 
@@ -115,7 +115,7 @@ TEXTAREA.BigTextArea
 	
 .TableBorderCell{background: #D6E0EF;}
 
-.PaginationCreater{color:#111111;}
+.PaginationCreater{color:#333333;}
 
 .3D_Button {
  BORDER-RIGHT: #002D96 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #002D96 1px solid; PADDING-LEFT: 2px; 
@@ -177,7 +177,7 @@ TEXTAREA.BigTextArea
 
 .TDStyle
 {
-	border-bottom-width:1px; border-bottom-color:#111111; border-bottom-style:solid
+	border-bottom-width:1px; border-bottom-color:#333333; border-bottom-style:solid
 }
 
 .Input
@@ -236,7 +236,7 @@ TEXTAREA.BigTextArea
 	BORDER-TOP: #ffffff 0px solid; 
 	FONT-SIZE: 12px; 
 	BORDER-LEFT: #ffffff 0px solid; 
-	BORDER-BOTTOM: #111111 1px solid; 
+	BORDER-BOTTOM: #333333 1px solid; 
 	FONT-FAMILY: "Verdana", "Arial", "宋体", "sans-serif"; 
 	COLOR: #14317d; 
 }

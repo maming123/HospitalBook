@@ -21,11 +21,11 @@
         //获取中奖纪录
         function GetList(pageIndex) {
             var mobile = $("#txtmobile").val();
-
+            var registcode = $("#txtregistcode").val();
             $.ajax({
                 type: "POST",
                 url: "handler/PageHandler.ashx",
-                data: { Action: "GetUserLogList", mobile: mobile, PageIndex: pageIndex, r: Math.random() },
+                data: { Action: "GetUserLogList", mobile: mobile, registcode: registcode, PageIndex: pageIndex, r: Math.random() },
                 dataType: "json",
                 async: true,
                 success: function (result) {
@@ -135,7 +135,7 @@
                 <span class="icon-sprite icon-list"></span>
                 <h3>注册用户日志列表</h3>
                 <div class="bar">
-                    手机号：<input id="txtmobile" type="text" />
+                    注册码：<input id="txtregistcode" type="text" />&nbsp;&nbsp;手机号：<input id="txtmobile" type="text" />
                     <input id="btnQuery" type="button" value="查询" onclick="GetList(1);" />
                 </div>
             </div>

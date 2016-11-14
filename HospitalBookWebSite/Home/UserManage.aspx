@@ -20,11 +20,11 @@
         //获取中奖纪录
         function GetList(pageIndex) {
             var mobile = $("#txtmobile").val();
-
+            var bookId = $("#ddlBook").val();
             $.ajax({
                 type: "POST",
                 url: "handler/PageHandler.ashx",
-                data: { Action: "GetUserList", mobile: mobile, PageIndex: pageIndex, r: Math.random() },
+                data: { Action: "GetUserList", mobile: mobile,bookId:bookId, PageIndex: pageIndex, r: Math.random() },
                 dataType: "json",
                 async: true,
                 success: function (result) {
@@ -128,13 +128,15 @@
     </script>
 </head>
 <body>
+    <form id="form1" runat="server">
     <div id="divList">
         <div class="block">
             <div class="h">
                 <span class="icon-sprite icon-list"></span>
                 <h3>用户列表</h3>
                 <div class="bar">
-                    手机号：<input id="txtmobile" type="text" />
+                     选择书籍：<asp:DropDownList ID="ddlBook" runat="server" >
+                    </asp:DropDownList>&nbsp;&nbsp;手机号：<input id="txtmobile" type="text" />
                     <input id="btnQuery" type="button" value="查询" onclick="GetList(1);" />
                 </div>
             </div>
@@ -196,5 +198,6 @@
             </tr>
         </table>
     </div>
+        </form>
 </body>
 </html>

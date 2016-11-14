@@ -21,7 +21,7 @@
 				}
 			}
 			function ShowSelectParentModule() {
-			    IframLayer("selectparentmodule.aspx", 400, 400);
+			    IframLayer("selectparentmodule.aspx", 400, 200);
 			}
 			
 		</script>
@@ -30,16 +30,15 @@
 		<form id="Form1" method="post" runat="server">
 			<FONT face="宋体">
 				<TABLE id="Table1" style="HEIGHT: 183px" cellSpacing="0" cellPadding="0" width="100%" border="0">
-					<TR>
-						<TD vAlign="top" style="HEIGHT: 12px" align="center"><!--img src="../../images/edit.gif" border="0" height="25" width="25"--><STRONG style="FONT-SIZE: 10pt">添加新模块</STRONG></TD>
-					</TR>
-					<TR>
-						<TD vAlign="top" height="6"></TD>
-					</TR>
+					
 					<TR>
 						<TD vAlign="top">
-							<TABLE id="Table3" cellSpacing="1" cellPadding="2" border="1" style="border-collapse:collapse" borderColor="#111111">
+							<TABLE id="Table3" cellSpacing="1" cellPadding="2" border="1" style="border-collapse:collapse" borderColor="#333333">
 								<TR class="TableDataRow">
+									<TD  colspan="2" style="HEIGHT: 12px" align="center"><STRONG style="FONT-SIZE: 10pt">添加新模块</STRONG></TD>
+									
+								</TR>
+                                <TR class="TableDataRow">
 									<TD style="WIDTH: 61px">模块名称</TD>
 									<TD><asp:textbox id="txtModuleName" runat="server" Width="458px" CssClass="BigInput"></asp:textbox></TD>
 								</TR>
@@ -51,7 +50,9 @@
 										<INPUT type="button" value="浏览" class="BigButton" onclick="ShowSelectParentModule();"
 											name="btnBrowseParent">
 										<asp:CheckBox id="chkIsRootModule" runat="server" Text="当前模块为根模块" Visible="false"></asp:CheckBox>
-										<asp:TextBox id="txtParentID" runat="server" Width="0px"></asp:TextBox></TD>
+										<asp:HiddenField id="txtParentID" runat="server"></asp:HiddenField>
+                                        
+									</TD>
 								</TR>
                                 
 <%--								<TR class="TableDataRow">

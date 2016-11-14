@@ -45,7 +45,7 @@ namespace MLK.SystemModule.Sys.Modules
             if (module != null)
             {
                 txtModuleName.Text = module.Name;
-                txtParentID.Text = module.ParentID.ToString();
+                txtParentID.Value = module.ParentID.ToString();
                 if (module.ParentID != 0)
                 {
                     txtParentName.Text = moduleDAO.FindByID(module.ParentID).Name;
@@ -73,7 +73,7 @@ namespace MLK.SystemModule.Sys.Modules
         {
             SNS.Library.SystemModules.Module module = new SNS.Library.SystemModules.Module();
             module.Name = txtModuleName.Text;
-            module.ParentID = int.Parse(txtParentID.Text);
+            module.ParentID = int.Parse(txtParentID.Value);
             module.LinkPath = "";// txtLinkName.Text;
             module.Display = chkIsDisplay.Checked;
             module.LinkTarget = "";// txtTargetName.Text;

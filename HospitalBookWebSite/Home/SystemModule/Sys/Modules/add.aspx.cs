@@ -37,7 +37,7 @@ namespace MLK.SystemModule.Sys.Modules
         {
             SNS.Library.SystemModules.Module module = new SNS.Library.SystemModules.Module();
             module.Name = txtModuleName.Text;
-            module.ParentID = int.Parse(txtParentID.Text);
+            module.ParentID = int.Parse(txtParentID.Value);
             module.LinkPath = "";// txtLinkName.Text;
             module.LinkTarget = "";//txtTargetName.Text;
             module.Display = chkIsDisplay.Checked;

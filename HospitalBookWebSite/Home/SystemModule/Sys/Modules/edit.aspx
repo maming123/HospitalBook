@@ -20,7 +20,7 @@
             }
         }
         function ShowSelectParentModule() {
-            IframLayer("selectparentmodule.aspx", 400, 400);
+            IframLayer("selectparentmodule.aspx", 400, 200);
         }
 
     </script>
@@ -29,17 +29,14 @@
     <form id="Form1" method="post" runat="server">
         <font face="宋体">
             <table id="Table1" style="height: 183px" cellspacing="0" cellpadding="0" width="100%" border="0">
-                <tr>
-                    <td valign="top" style="height: 12px" align="center">
-                        <!--img src="../../images/edit.gif" border="0" height="25" width="25"-->
-                        <strong style="font-size: 10pt">编辑模块信息</strong></td>
-                </tr>
-                <tr>
-                    <td valign="top" height="6"></td>
-                </tr>
+
                 <tr>
                     <td valign="top">
-                        <table id="Table3" cellspacing="1" cellpadding="2" border="1" style="border-collapse: collapse" bordercolor="#111111">
+                        <table id="Table3" cellspacing="1" cellpadding="2" border="1" style="border-collapse: collapse" bordercolor="#333333">
+                            <TR class="TableDataRow">
+									<TD  colspan="2" style="HEIGHT: 12px" align="center"><STRONG style="FONT-SIZE: 10pt">编辑模块信息</STRONG></TD>
+									
+								</TR>
                             <tr class="TableDataRow">
                                 <td style="width: 61px">模块名称</td>
                                 <td>
@@ -52,7 +49,7 @@
                                     <input type="button" value="浏览" class="BigButton" onclick="ShowSelectParentModule();"
                                         name="btnBrowseParent">
                                     <asp:CheckBox ID="chkIsRootModule" runat="server" Text="当前模块为根模块" Visible="false"></asp:CheckBox>
-                                    <asp:TextBox ID="txtParentID" runat="server" Width="0px"></asp:TextBox></td>
+                                    <asp:HiddenField id="txtParentID" runat="server"></asp:HiddenField></td>
                             </tr>
                             <%--<tr class="TableDataRow">
                                 <td style="width: 61px">指向的链接</td>
@@ -100,8 +97,8 @@
                             </tr>
                             <tr class="TableDataRow">
                                 <td align="center" colspan="2">
-                                    <asp:Button ID="btnEdit" runat="server" Text="修改" CssClass="3D_Button" OnClick="btnEdit_Click"></asp:Button>
-                                    <input type="button" value="返回" class="3D_Button" onclick="history.go(-1);">
+                                    <asp:Button ID="btnEdit" runat="server" Text="修改" CssClass="BigButton" OnClick="btnEdit_Click"></asp:Button>
+                                    <input type="button" value="返回" class="BigButton" onclick="history.go(-1);">
                                 <%if(!isHaveChild){ %>
                                     <a href="/Home/EditPoint.aspx?ModuleID=<%=Request["ModuleID"] %>">修改采分点内容</a>
                                     <%} %>

@@ -29,11 +29,11 @@
 						</div>
 					</TD>
 				</TR>
-				<tr height="30">
+				<!--<tr height="30">
 					<td align="center" valign="center">
 						<input type="button" value="取消" onclick="window.close();">
 					</td>
-				</tr>
+				</tr>-->
 			</TABLE>
 		</form>
 	</body>

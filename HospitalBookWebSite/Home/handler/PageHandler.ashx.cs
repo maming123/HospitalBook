@@ -39,11 +39,12 @@ namespace HospitalBookWebSite.Home.handler
             if (!IsReady())
                 return;
 
+            int bookId = RequestKeeper.GetFormInt(Request["bookId"]);
             long mobile = RequestKeeper.GetFormLong(Request["mobile"]);
             int pageIndex = RequestKeeper.GetFormInt(Request["PageIndex"]);
             int pageSize = 20;// RequestKeeper.GetFormInt(Request["PageSize"]);
 
-            PageList<List<User>> pList = UserBusiness.GetUserList(mobile, pageIndex, pageSize);
+            PageList<List<User>> pList = UserBusiness.GetUserList(mobile,bookId, pageIndex, pageSize);
 
 
             Response.Write(BaseCommon.ObjectToJson(new ReturnJsonType<PageList<List<User>>>() { code = 1, m = pList }));
@@ -53,12 +54,13 @@ namespace HospitalBookWebSite.Home.handler
         {
             if (!IsReady())
                 return;
-
+            
             long mobile = RequestKeeper.GetFormLong(Request["mobile"]);
+            string registcode = RequestKeeper.GetFormString(Request["registcode"]);
             int pageIndex = RequestKeeper.GetFormInt(Request["PageIndex"]);
             int pageSize = 20;// RequestKeeper.GetFormInt(Request["PageSize"]);
 
-            PageList<List<UserRegistLog>> pList = UserBusiness.GetUserLogList(mobile, pageIndex, pageSize);
+            PageList<List<UserRegistLog>> pList = UserBusiness.GetUserLogList(mobile,registcode, pageIndex, pageSize);
 
 
             Response.Write(BaseCommon.ObjectToJson(new ReturnJsonType<PageList<List<UserRegistLog>>>() { code = 1, m = pList }));

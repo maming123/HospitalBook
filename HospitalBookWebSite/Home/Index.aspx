@@ -93,7 +93,7 @@
         }
 
         function createFrame(url) {
-            var s = '<iframe scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>';
+            var s = '<iframe scrolling="no" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>';
             return s;
         }
     </script>
@@ -137,7 +137,8 @@
     </div>
     <div data-options="region:'south',title:''" style="background-color: #424242">
 
-        <div style="color: #FFFFFF; text-align: center; vertical-align: bottom">地址：北京市东城区东单三条9号 网址：<a style="color: #FFFFFF" href="http://www.pumcp.com" target="_blank">http://www.pumcp.com</a>  互联网出版许可证 新出网证 （京）字282号 京ICP备 05029104号-4 Copyright©2013 中国协和医科大学出版社 版权所有！</div>
+        <div style="color: #FFFFFF; text-align: center; vertical-align: bottom">地址：北京市东城区东单三条9号 网址：<a style="color: #FFFFFF" href="http://www.pumcp.com" target="_blank">http://www.pumcp.com</a>  互联网出版许可证 新出网证 （京）字282号 京ICP备 05029104号-4<br>Copyright2013 中国协和医科大学出版社 版权所有！</div>
+
     </div>
 
 

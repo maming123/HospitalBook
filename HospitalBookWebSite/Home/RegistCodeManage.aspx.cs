@@ -48,9 +48,16 @@ namespace HospitalBookWebSite.Home
 
         protected void btnGenerate_Click(object sender, EventArgs e)
         {
+            
             int bookId = Convert.ToInt32(this.ddlBook.SelectedValue);
             //要生成的数量
-            int inputCount=Convert.ToInt32(txtCodeNum.Text.Trim());
+            int inputCount = 0;
+            if (!int.TryParse(txtCodeNum.Text.Trim(), out inputCount) || inputCount<=0 || bookId<=0)
+            {
+                MessageBox.Show(Page, "请选择书籍并填写号码数量");
+                return;
+            }
+
             List<Sys_RegistCode> list = Sys_RegistCode.Query(@"where BookId=@0 ",bookId).ToList();
             foreach(Sys_RegistCode code in list)
             {
@@ -186,7 +193,7 @@ namespace HospitalBookWebSite.Home
 
         private void FillData(string code,string queryType)
         {
-            string strSql = @"select top 100 * from Sys_RegistCode where 1=1 ";
+            string strSql = @"select top 10 * from Sys_RegistCode where 1=1 ";
             if (queryType == "1")
             {
                 if (!string.IsNullOrEmpty(code))
@@ -221,6 +228,19 @@ namespace HospitalBookWebSite.Home
                     MessageBox.Show(Page, "已更新，请重新查询");
                 }
             }
+        }
+
+        protected void btnExportRegistCode_Click(object sender, EventArgs e)
+        {
+
+            DataTable dt =new DataTable();
+
+            string strSql = String.Format(@"select RegistCode as '注册码',IsEnable as '是否已用 1:未用 0：已用' from Sys_RegistCode where BookId={0}", this.ddlBook.SelectedValue);
+            dt =CoreDB.GetInstance().GetDataTable(strSql);
+
+            string fileName=String.Format(@"{0}注册码{1}",this.ddlBook.SelectedItem.Text,DateTime.Now.ToString("yyyyMMddHHmm"));
+            ExportDataCommon.ExportToExcel(dt,fileName);
+
         }
     }
 }

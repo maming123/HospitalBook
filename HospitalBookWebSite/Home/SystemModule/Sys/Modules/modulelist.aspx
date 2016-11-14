@@ -37,7 +37,7 @@
 					</TD>
 					<TD width="8"></TD>
 					<TD vAlign="top">
-						<iframe name="ifrmModuleInfo" frameborder="0" width="100%" height="100%"></iframe>
+						<iframe name="ifrmModuleInfo" frameborder="0"   scrolling="no" width="100%" height="100%"></iframe>
 					</TD>
 				</TR>
 			</TABLE>

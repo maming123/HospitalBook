@@ -337,6 +337,7 @@ marquee p {
 	height:101px;
 	width:968px;
 	margin:0 auto; 
+    text-align:center;
 }
 .header .banner{
 	width:968px;
@@ -1169,6 +1170,10 @@ marquee p {
 .footer{
 	padding:34px 0 16px;
 	background:url(../images/pattern_slash.gif) 0 -8px;
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    width:100%;
 }
 .footer .list{
 	width:968px;

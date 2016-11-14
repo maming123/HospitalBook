@@ -279,6 +279,12 @@ namespace Module.Models
 
 
 
+
+
+		[Column] public int BookId { get; set; }
+
+
+
 	}
 
     
@@ -332,6 +338,12 @@ namespace Module.Models
 
 
 		[Column] public DateTime CreateDateTime { get; set; }
+
+
+
+
+
+		[Column] public int BookId { get; set; }
 
 
 

@@ -244,6 +244,7 @@ namespace HospitalBookWebSite.wpa
                          , NickName=userFromRegistCode.NickName
                          , RegistCode=userFromRegistCode.RegistCode
                          , PassWord =userFromRegistCode.PassWord
+                         , BookId =srcodeHave.BookId
                     };
                     db.Insert(userlog);
                     db.Delete(userFromRegistCode);
@@ -254,6 +255,7 @@ namespace HospitalBookWebSite.wpa
                          , RegistCode=registcode
                          , NickName=mobile.ToString()
                          , Email =email
+                         , BookId=srcodeHave.BookId
                     };
                     db.Insert(userNew);
                     db.CompleteTransaction();
@@ -298,6 +300,8 @@ namespace HospitalBookWebSite.wpa
                         NickName = mobile.ToString()
                         ,
                         Email = email
+                        ,
+                        BookId = srcodeHave.BookId
                     };
                     db.Insert(userNew);
                     Sys_RegistCode srcode = db.SingleOrDefault<Sys_RegistCode>(@"where RegistCode=@0",registcode);
