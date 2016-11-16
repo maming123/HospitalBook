@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Module.Utils;
 using SNS.Library.SystemModules;
 
 namespace MLK.SystemModule.Sys.Modules
@@ -35,6 +36,11 @@ namespace MLK.SystemModule.Sys.Modules
 
         protected void btnAdd_Click(object sender, System.EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtParentID.Value))
+            {
+                MessageBox.Show(Page, "请选择出版社");
+                return;
+            }
             SNS.Library.SystemModules.Module module = new SNS.Library.SystemModules.Module();
             module.Name = txtModuleName.Text;
             module.ParentID = int.Parse(txtParentID.Value);

@@ -19,7 +19,7 @@
 					<TD vAlign="top" width="230" height="30" colSpan="3">
 						<TABLE id="Table2" cellSpacing="4" cellPadding="4" border="0">
 							<TR>
-								<TD><A href="Add.aspx" target="ifrmModuleInfo">添加新模块</A></TD>
+								<TD><A href="Add.aspx" target="ifrmModuleInfo">添加新书籍</A></TD>
 								<TD>
 									<asp:LinkButton id="linkBtnDelete" Visible="false" runat="server" onclick="linkBtnDelete_Click">删除选中的模块</asp:LinkButton>
 								</TD>

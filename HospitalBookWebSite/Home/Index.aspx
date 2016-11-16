@@ -102,7 +102,7 @@
     <div data-options="region:'north',border:false" style="background: #005273; height: 105px;">
         <%=LoginUserName %>
         <image src="login/images/logo.png"></image>
-        <a style="color: #FFFFFF" href="/home/login/LoginOut.aspx?U=/home/login/index.aspx">退出登录</a>
+        <a style="color: #FFFFFF; float:right;margin:85px 0px 0px 0px;" href="/home/login/LoginOut.aspx?U=/home/login/index.aspx">退出登录</a>
     </div>
     <div data-options="region:'west',split:false,title:'导航菜单'" style="width: 260px; padding: 10px;">
 

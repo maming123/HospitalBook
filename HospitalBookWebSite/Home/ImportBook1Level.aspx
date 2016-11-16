@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/sysmodule.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
@@ -12,9 +13,9 @@
         <table>
             <tr>
                 <td>
-                    第一级：<asp:TextBox ID="txtLevelOne" runat="server" Width="50px">部分</asp:TextBox>
+                    第一级：<asp:TextBox ID="txtLevelOne"  CssClass="BigInput" runat="server" Width="50px">部分</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="txtBook" runat="server" Height="271px" TextMode="MultiLine" Width="412px">第一部分 基础医学综合
+                    <asp:TextBox ID="txtBook"   CssClass="BigTextArea" runat="server" Height="271px" TextMode="MultiLine" Width="412px">第一部分 基础医学综合
      
          
          采分点1：蛋白质的基本结构单位是氨基酸。
@@ -30,10 +31,10 @@
          
          采分点1：蛋白质的基本结构单位是氨基酸。
          采分点n       </asp:TextBox></td>
-                <td>&nbsp;<asp:Button ID="btnImport0" runat="server" Height="145px" OnClick="btnImport0_Click" Text="1、转换--&gt;" Width="86px" />
+                <td>&nbsp;<asp:Button ID="btnImport0"  CssClass="BigButton"  runat="server" Height="145px" OnClick="btnImport0_Click" Text="1、转换--&gt;" Width="86px" />
                     &nbsp;</td>
                 <td>
-                    <asp:TextBox ID="txtBookxml" runat="server" Height="265px" TextMode="MultiLine" Width="412px"></asp:TextBox></td>
+                    <asp:TextBox ID="txtBookxml" runat="server" Height="265px" TextMode="MultiLine" Width="412px" CssClass="BigTextArea"></asp:TextBox></td>
             </tr>
             <tr><td></td><td></td><td><asp:Button ID="btnTransfor2" runat="server" Height="44px"  Text="2、转换--&gt;" Width="353px" OnClick="btnTransfor2_Click" />
                     </td></tr>
@@ -44,7 +45,7 @@
 
 
 
-                    选择书籍：<asp:DropDownList ID="ddlBook" runat="server">
+                    选择书籍：<asp:DropDownList ID="ddlBook" runat="server" >
                     </asp:DropDownList>
 
 

@@ -35,15 +35,15 @@
 						<TD vAlign="top">
 							<TABLE id="Table3" cellSpacing="1" cellPadding="2" border="1" style="border-collapse:collapse" borderColor="#333333">
 								<TR class="TableDataRow">
-									<TD  colspan="2" style="HEIGHT: 12px" align="center"><STRONG style="FONT-SIZE: 10pt">添加新模块</STRONG></TD>
+									<TD  colspan="2" style="HEIGHT: 12px" align="center"><STRONG style="FONT-SIZE: 10pt">添加新书籍</STRONG></TD>
 									
 								</TR>
                                 <TR class="TableDataRow">
-									<TD style="WIDTH: 61px">模块名称</TD>
+									<TD style="WIDTH: 61px">书籍名称</TD>
 									<TD><asp:textbox id="txtModuleName" runat="server" Width="458px" CssClass="BigInput"></asp:textbox></TD>
 								</TR>
 								<TR class="TableDataRow">
-									<TD style="WIDTH: 61px">所属父模块</TD>
+									<TD style="WIDTH: 61px">所属出版社</TD>
 									<TD><asp:textbox id="txtParentName" runat="server" Width="296px" ReadOnly="True" CssClass="BigInput"></asp:textbox>
 										<%--<INPUT type="button" value="浏览" class="BigButton" onclick="window.showModalDialog('SelectParentModule.aspx', window, 'dialogWidth:350px');"
 											name="btnBrowseParent">--%>

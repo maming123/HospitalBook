@@ -34,16 +34,16 @@
                     <td valign="top">
                         <table id="Table3" cellspacing="1" cellpadding="2" border="1" style="border-collapse: collapse" bordercolor="#333333">
                             <TR class="TableDataRow">
-									<TD  colspan="2" style="HEIGHT: 12px" align="center"><STRONG style="FONT-SIZE: 10pt">编辑模块信息</STRONG></TD>
+									<TD  colspan="2" style="HEIGHT: 12px" align="center"><STRONG style="FONT-SIZE: 10pt">编辑书籍信息</STRONG></TD>
 									
 								</TR>
                             <tr class="TableDataRow">
-                                <td style="width: 61px">模块名称</td>
+                                <td style="width: 61px">书籍名称</td>
                                 <td>
                                     <asp:TextBox ID="txtModuleName" runat="server" Width="458px" CssClass="BigInput"></asp:TextBox></td>
                             </tr>
                             <tr class="TableDataRow">
-                                <td style="width: 61px">所属父模块</td>
+                                <td style="width: 61px">所属出版社</td>
                                 <td>
                                     <asp:TextBox ID="txtParentName" runat="server" Width="296px" ReadOnly="True" CssClass="BigInput"></asp:TextBox>
                                     <input type="button" value="浏览" class="BigButton" onclick="ShowSelectParentModule();"
@@ -98,9 +98,9 @@
                             <tr class="TableDataRow">
                                 <td align="center" colspan="2">
                                     <asp:Button ID="btnEdit" runat="server" Text="修改" CssClass="BigButton" OnClick="btnEdit_Click"></asp:Button>
-                                    <input type="button" value="返回" class="BigButton" onclick="history.go(-1);">
+                                    &nbsp;&nbsp;<input type="button" value="返回" class="BigButton" onclick="history.go(-1);">
                                 <%if(!isHaveChild){ %>
-                                    <a href="/Home/EditPoint.aspx?ModuleID=<%=Request["ModuleID"] %>">修改采分点内容</a>
+                                    <a href="/Home/EditPoint.aspx?ModuleID=<%=Request["ModuleID"] %>">具体内容修改</a>
                                     <%} %>
                                 </td>
                             </tr>
