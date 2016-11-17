@@ -37,7 +37,7 @@ A:hover
 	color:#ff0000;text-decoration:underline}
 	
 INPUT.BigButton {
-	  FONT-SIZE: 9pt; BACKGROUND: #d6e7ef;  CURSOR: hand; COLOR: #000066;  HEIGHT: 20px; TEXT-DECORATION: none;width:50px; border:#333 1px solid;
+	  FONT-SIZE: 9pt; BACKGROUND: #d6e7ef;  CURSOR: hand; COLOR: #000066;  TEXT-DECORATION: none;border:#333 1px solid;
 }
 
 INPUT.BigInput {

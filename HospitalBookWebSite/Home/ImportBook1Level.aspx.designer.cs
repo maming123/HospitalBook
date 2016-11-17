@@ -67,13 +67,13 @@ namespace HospitalBookWebSite.Home {
         protected global::System.Web.UI.WebControls.Button btnTransfor2;
         
         /// <summary>
-        /// txtResult 控件。
+        /// txtBookXML2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtResult;
+        protected global::System.Web.UI.WebControls.TextBox txtBookXML2;
         
         /// <summary>
         /// ddlBook 控件。
@@ -85,15 +85,6 @@ namespace HospitalBookWebSite.Home {
         protected global::System.Web.UI.WebControls.DropDownList ddlBook;
         
         /// <summary>
-        /// btnCheck 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCheck;
-        
-        /// <summary>
         /// Label1 控件。
         /// </summary>
         /// <remarks>
@@ -101,6 +92,15 @@ namespace HospitalBookWebSite.Home {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// btnCheck 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCheck;
         
         /// <summary>
         /// btnImportDB 控件。
@@ -112,6 +112,15 @@ namespace HospitalBookWebSite.Home {
         protected global::System.Web.UI.WebControls.Button btnImportDB;
         
         /// <summary>
+        /// txtResult 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtResult;
+        
+        /// <summary>
         /// btnExportXMLFromDB 控件。
         /// </summary>
         /// <remarks>
@@ -119,14 +128,5 @@ namespace HospitalBookWebSite.Home {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExportXMLFromDB;
-        
-        /// <summary>
-        /// txtBookXML2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookXML2;
     }
 }
