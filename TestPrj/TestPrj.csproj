@@ -56,6 +56,19 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HospitalBook.Module\HospitalBook.Module.csproj">
+      <Project>{2ebd713c-fd1f-40df-8d83-8f137d1d0dc6}</Project>
+      <Name>HospitalBook.Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HospitalBookWebSite\HospitalBook.WebSite.csproj">
+      <Project>{c5a4417b-6e43-414b-ad6c-cecd4a008392}</Project>
+      <Name>HospitalBook.WebSite</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

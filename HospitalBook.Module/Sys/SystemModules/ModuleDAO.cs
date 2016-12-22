@@ -192,7 +192,7 @@ namespace SNS.Library.SystemModules
         public ArrayList FindByParentModuleID(int parentModuleID)
         {
             //maming -Edit 2006-5-25,true----->false ，只显示数据库中IsDisplay==1的节点
-            return this.FindByParentModuleID(parentModuleID, false);
+            return this.FindByParentModuleID(parentModuleID, true);
         }
 
 		/// <summary>

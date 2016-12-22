@@ -38,12 +38,12 @@
 									
 								</TR>
                             <tr class="TableDataRow">
-                                <td style="width: 61px">书籍名称</td>
+                                <td style="width: 61px">名 称</td>
                                 <td>
                                     <asp:TextBox ID="txtModuleName" runat="server" Width="458px" CssClass="BigInput"></asp:TextBox></td>
                             </tr>
                             <tr class="TableDataRow">
-                                <td style="width: 61px">所属出版社</td>
+                                <td style="width: 61px">所属父节点</td>
                                 <td>
                                     <asp:TextBox ID="txtParentName" runat="server" Width="296px" ReadOnly="True" CssClass="BigInput"></asp:TextBox>
                                     <input type="button" value="浏览" class="BigButton" onclick="ShowSelectParentModule();"
