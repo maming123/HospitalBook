@@ -651,18 +651,21 @@
     </Compile>
     <Compile Include="Home\ImportBook2Level.aspx.cs">
       <DependentUpon>ImportBook2Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home\ImportBook2Level.aspx.designer.cs">
       <DependentUpon>ImportBook2Level.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home\ImportBook3Level.aspx.cs">
       <DependentUpon>ImportBook3Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home\ImportBook3Level.aspx.designer.cs">
       <DependentUpon>ImportBook3Level.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home\ImportBook4Level.aspx.cs">
       <DependentUpon>ImportBook4Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home\ImportBook4Level.aspx.designer.cs">
       <DependentUpon>ImportBook4Level.aspx</DependentUpon>

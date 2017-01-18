@@ -20,18 +20,28 @@ namespace HospitalBookWebSite.Home
         private int parent_module_id = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 BindDDLBook();
+                BindDDLBookExport();
             }
         }
 
         private void BindDDLBook()
         {
             List<Sys_Module> list = Sys_Module.Query("where parent_module_id=1").ToList();
-            foreach(Sys_Module sys in list)
+            foreach (Sys_Module sys in list)
             {
-                if (sys.Template_ID == level || Convert.ToInt32(sys.Template_ID) == 0) this.ddlBook.Items.Add(new ListItem(sys.MODULE_NAME, sys.MODULE_ID.ToString()));
+                if (Convert.ToInt32(sys.Template_ID) == 0) this.ddlBook.Items.Add(new ListItem(sys.MODULE_NAME, sys.MODULE_ID.ToString()));
+            }
+        }
+        private void BindDDLBookExport()
+        {
+            List<Sys_Module> list = Sys_Module.Query("where parent_module_id=1").ToList();
+            foreach (Sys_Module sys in list)
+            {
+                if (sys.Template_ID == level)
+                    this.ddlBookExport.Items.Add(new ListItem(sys.MODULE_NAME, sys.MODULE_ID.ToString()));
             }
         }
 
@@ -584,8 +594,8 @@ namespace HospitalBookWebSite.Home
 
         protected void btnExportXMLFromDB_Click(object sender, EventArgs e)
         {
-            int bookid = Convert.ToInt32(this.ddlBook.SelectedValue);
-            string bookName =this.ddlBook.SelectedItem.Text;
+            int bookid = Convert.ToInt32(this.ddlBookExport.SelectedValue);
+            string bookName = this.ddlBookExport.SelectedItem.Text;
             List<Sys_Module> listSection = Sys_Module.Query(@" where parent_module_id=@0", bookid).ToList();
             
             XmlDocument document = new XmlDocument();

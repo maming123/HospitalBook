@@ -110,6 +110,8 @@
             </tr>
             <tr>
                 <td align="center">
+                    请选择需导出的书籍：<asp:DropDownList ID="ddlBookExport" runat="server">
+                </asp:DropDownList>
                     <asp:Button ID="btnExportXMLFromDB" runat="server"  OnClick="btnExportXMLFromDB_Click"  Height="26px" Text="导出书籍" Width="351px"  CssClass="BigButton" />
                 </td>
                
