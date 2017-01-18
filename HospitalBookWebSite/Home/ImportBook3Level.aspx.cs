@@ -47,6 +47,13 @@ namespace HospitalBookWebSite.Home
 
         protected void btnCheck_Click(object sender, EventArgs e)
         {
+
+            if (String.IsNullOrEmpty(this.ddlBook.SelectedValue.Trim()))
+            {
+                MessageBox.Show(Page, "请选择书籍");
+                return;
+            }
+
             this.btnImportDB.Enabled = false;
 
             #region 测试的xml文件
@@ -594,6 +601,11 @@ namespace HospitalBookWebSite.Home
 
         protected void btnExportXMLFromDB_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(this.ddlBookExport.SelectedValue.Trim()))
+            {
+                MessageBox.Show(Page, "请选择书籍");
+                return;
+            }
             int bookid = Convert.ToInt32(this.ddlBookExport.SelectedValue);
             string bookName = this.ddlBookExport.SelectedItem.Text;
             List<Sys_Module> listSection = Sys_Module.Query(@" where parent_module_id=@0", bookid).ToList();
