@@ -235,7 +235,7 @@ namespace HospitalBookWebSite.Home
 
             DataTable dt =new DataTable();
 
-            string strSql = String.Format(@"select RegistCode as '注册码',IsEnable as '是否已用 1:未用 0：已用' from Sys_RegistCode where BookId={0}", this.ddlBook.SelectedValue);
+            string strSql = String.Format(@"select RegistCode as '注册码',IsEnable as ' 1:未用 0：已用' from Sys_RegistCode where BookId={0}", this.ddlBook.SelectedValue);
             dt =CoreDB.GetInstance().GetDataTable(strSql);
 
             string fileName=String.Format(@"{0}注册码{1}",this.ddlBook.SelectedItem.Text,DateTime.Now.ToString("yyyyMMddHHmm"));
