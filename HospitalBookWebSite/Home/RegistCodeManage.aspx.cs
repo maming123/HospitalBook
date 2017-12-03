@@ -88,7 +88,7 @@ namespace HospitalBookWebSite.Home
                          ,
                     BookId = bookId
                          ,
-                    IsEnable = 0
+                    IsEnable = 1
                          ,
                     CreateDateTime = DateTime.Now
                 };
